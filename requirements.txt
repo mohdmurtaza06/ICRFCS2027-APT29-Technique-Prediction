@@ -1,0 +1,6 @@
+# Dependency pins from the author-reported Windows environment (not the exact
+# measured container runtime used for the bundled four-condition experiments).
+# See audit/user_reported_environment_2026-10-11.txt and
+# audit/executed_environment_2026-10-12.txt for the distinction.
+numpy==2.5.4
+torch==2.14.1

@@ -1,0 +1,1265 @@
+[
+  {
+    "index": 1,
+    "substep": "1.A.1",
+    "technique_id": "T1204",
+    "technique_name": "User Execution",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 2,
+    "substep": "1.A.2",
+    "technique_id": "T1036",
+    "technique_name": "Masquerading",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 3,
+    "substep": "1.A.3",
+    "technique_id": "T1065",
+    "technique_name": "Uncommonly Used Port",
+    "tactics": [
+      "Command and Control"
+    ]
+  },
+  {
+    "index": 4,
+    "substep": "1.A.4",
+    "technique_id": "T1032",
+    "technique_name": "Standard Cryptographic Protocol",
+    "tactics": [
+      "Command and Control"
+    ]
+  },
+  {
+    "index": 5,
+    "substep": "1.B.1",
+    "technique_id": "T1059",
+    "technique_name": "Command-Line Interface",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 6,
+    "substep": "1.B.2",
+    "technique_id": "T1086",
+    "technique_name": "PowerShell",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 7,
+    "substep": "2.A.1",
+    "technique_id": "T1083",
+    "technique_name": "File and Directory Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 8,
+    "substep": "2.A.2",
+    "technique_id": "T1119",
+    "technique_name": "Automated Collection",
+    "tactics": [
+      "Collection"
+    ]
+  },
+  {
+    "index": 9,
+    "substep": "2.A.3",
+    "technique_id": "T1005",
+    "technique_name": "Data from Local System",
+    "tactics": [
+      "Collection"
+    ]
+  },
+  {
+    "index": 10,
+    "substep": "2.A.4",
+    "technique_id": "T1002",
+    "technique_name": "Data Compressed",
+    "tactics": [
+      "Exfiltration"
+    ]
+  },
+  {
+    "index": 11,
+    "substep": "2.A.5",
+    "technique_id": "T1074",
+    "technique_name": "Data Staged",
+    "tactics": [
+      "Collection"
+    ]
+  },
+  {
+    "index": 12,
+    "substep": "2.B.1",
+    "technique_id": "T1041",
+    "technique_name": "Exfiltration Over Command and Control Channel",
+    "tactics": [
+      "Exfiltration"
+    ]
+  },
+  {
+    "index": 13,
+    "substep": "3.A.1",
+    "technique_id": "T1105",
+    "technique_name": "Remote File Copy",
+    "tactics": [
+      "Command and Control"
+    ]
+  },
+  {
+    "index": 14,
+    "substep": "3.A.2",
+    "technique_id": "T1027",
+    "technique_name": "Obfuscated Files or Information",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 15,
+    "substep": "3.B.1",
+    "technique_id": "T1122",
+    "technique_name": "Component Object Model Hijacking",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 16,
+    "substep": "3.B.2",
+    "technique_id": "T1088",
+    "technique_name": "Bypass User Account Control",
+    "tactics": [
+      "Privilege Escalation"
+    ]
+  },
+  {
+    "index": 17,
+    "substep": "3.B.3",
+    "technique_id": "T1043",
+    "technique_name": "Commonly Used Port",
+    "tactics": [
+      "Command and Control"
+    ]
+  },
+  {
+    "index": 18,
+    "substep": "3.B.4",
+    "technique_id": "T1071",
+    "technique_name": "Standard Application Layer Protocol",
+    "tactics": [
+      "Command and Control"
+    ]
+  },
+  {
+    "index": 19,
+    "substep": "3.B.5",
+    "technique_id": "T1032",
+    "technique_name": "Standard Cryptographic Protocol",
+    "tactics": [
+      "Command and Control"
+    ]
+  },
+  {
+    "index": 20,
+    "substep": "3.C.1",
+    "technique_id": "T1112",
+    "technique_name": "Modify Registry",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 21,
+    "substep": "4.A.1",
+    "technique_id": "T1105",
+    "technique_name": "Remote File Copy",
+    "tactics": [
+      "Command and Control"
+    ]
+  },
+  {
+    "index": 22,
+    "substep": "4.A.2",
+    "technique_id": "T1086",
+    "technique_name": "PowerShell",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 23,
+    "substep": "4.A.3",
+    "technique_id": "T1140",
+    "technique_name": "Deobfuscate/Decode Files or Information",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 24,
+    "substep": "4.B.1",
+    "technique_id": "T1057",
+    "technique_name": "Process Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 25,
+    "substep": "4.B.2",
+    "technique_id": "T1107",
+    "technique_name": "File Deletion",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 26,
+    "substep": "4.B.3",
+    "technique_id": "T1107",
+    "technique_name": "File Deletion",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 27,
+    "substep": "4.B.4",
+    "technique_id": "T1107",
+    "technique_name": "File Deletion",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 28,
+    "substep": "4.C.1",
+    "technique_id": "T1083",
+    "technique_name": "File and Directory Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 29,
+    "substep": "4.C.2",
+    "technique_id": "T1033",
+    "technique_name": "System Owner/User Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 30,
+    "substep": "4.C.3",
+    "technique_id": "T1082",
+    "technique_name": "System Information Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 31,
+    "substep": "4.C.4",
+    "technique_id": "T1016",
+    "technique_name": "System Network Configuration Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 32,
+    "substep": "4.C.5",
+    "technique_id": "T1057",
+    "technique_name": "Process Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 33,
+    "substep": "4.C.6",
+    "technique_id": "T1082",
+    "technique_name": "System Information Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 34,
+    "substep": "4.C.7",
+    "technique_id": "T1063",
+    "technique_name": "Security Software Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 35,
+    "substep": "4.C.8",
+    "technique_id": "T1063",
+    "technique_name": "Security Software Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 36,
+    "substep": "4.C.9",
+    "technique_id": "T1069",
+    "technique_name": "Permission Groups Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 37,
+    "substep": "4.C.10",
+    "technique_id": "T1106",
+    "technique_name": "Execution through API",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 38,
+    "substep": "4.C.11",
+    "technique_id": "T1069",
+    "technique_name": "Permission Groups Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 39,
+    "substep": "4.C.12",
+    "technique_id": "T1106",
+    "technique_name": "Execution through API",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 40,
+    "substep": "5.A.1",
+    "technique_id": "T1050",
+    "technique_name": "New Service",
+    "tactics": [
+      "Persistence"
+    ]
+  },
+  {
+    "index": 41,
+    "substep": "5.B.1",
+    "technique_id": "T1060",
+    "technique_name": "Registry Run Keys / Startup Folder",
+    "tactics": [
+      "Persistence"
+    ]
+  },
+  {
+    "index": 42,
+    "substep": "6.A.1",
+    "technique_id": "T1081",
+    "technique_name": "Credentials in Files",
+    "tactics": [
+      "Credential Access"
+    ]
+  },
+  {
+    "index": 43,
+    "substep": "6.A.2",
+    "technique_id": "T1003",
+    "technique_name": "Credential Dumping",
+    "tactics": [
+      "Credential Access"
+    ]
+  },
+  {
+    "index": 44,
+    "substep": "6.A.3",
+    "technique_id": "T1036",
+    "technique_name": "Masquerading",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 45,
+    "substep": "6.B.1",
+    "technique_id": "T1145",
+    "technique_name": "Private Keys",
+    "tactics": [
+      "Credential Access"
+    ]
+  },
+  {
+    "index": 46,
+    "substep": "6.C.1",
+    "technique_id": "T1003",
+    "technique_name": "Credential Dumping",
+    "tactics": [
+      "Credential Access"
+    ]
+  },
+  {
+    "index": 47,
+    "substep": "7.A.1",
+    "technique_id": "T1113",
+    "technique_name": "Screen Capture",
+    "tactics": [
+      "Collection"
+    ]
+  },
+  {
+    "index": 48,
+    "substep": "7.A.2",
+    "technique_id": "T1115",
+    "technique_name": "Clipboard Data",
+    "tactics": [
+      "Collection"
+    ]
+  },
+  {
+    "index": 49,
+    "substep": "7.A.3",
+    "technique_id": "T1056",
+    "technique_name": "Input Capture",
+    "tactics": [
+      "Collection"
+    ]
+  },
+  {
+    "index": 50,
+    "substep": "7.B.1",
+    "technique_id": "T1005",
+    "technique_name": "Data from Local System",
+    "tactics": [
+      "Collection"
+    ]
+  },
+  {
+    "index": 51,
+    "substep": "7.B.2",
+    "technique_id": "T1002",
+    "technique_name": "Data Compressed",
+    "tactics": [
+      "Exfiltration"
+    ]
+  },
+  {
+    "index": 52,
+    "substep": "7.B.3",
+    "technique_id": "T1022",
+    "technique_name": "Data Encrypted",
+    "tactics": [
+      "Exfiltration"
+    ]
+  },
+  {
+    "index": 53,
+    "substep": "7.B.4",
+    "technique_id": "T1048",
+    "technique_name": "Exfiltration Over Alternative Protocol",
+    "tactics": [
+      "Exfiltration"
+    ]
+  },
+  {
+    "index": 54,
+    "substep": "8.A.1",
+    "technique_id": "T1018",
+    "technique_name": "Remote System Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 55,
+    "substep": "8.A.2",
+    "technique_id": "T1028",
+    "technique_name": "Windows Remote Management",
+    "tactics": [
+      "Execution",
+      "Lateral Movement"
+    ]
+  },
+  {
+    "index": 56,
+    "substep": "8.A.3",
+    "technique_id": "T1057",
+    "technique_name": "Process Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 57,
+    "substep": "8.B.1",
+    "technique_id": "T1105",
+    "technique_name": "Remote File Copy",
+    "tactics": [
+      "Command and Control"
+    ]
+  },
+  {
+    "index": 58,
+    "substep": "8.B.2",
+    "technique_id": "T1045",
+    "technique_name": "Software Packing",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 59,
+    "substep": "8.C.1",
+    "technique_id": "T1078",
+    "technique_name": "Valid Accounts",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 60,
+    "substep": "8.C.2",
+    "technique_id": "T1077",
+    "technique_name": "Windows Admin Shares",
+    "tactics": [
+      "Lateral Movement"
+    ]
+  },
+  {
+    "index": 61,
+    "substep": "8.C.3",
+    "technique_id": "T1035",
+    "technique_name": "Service Execution",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 62,
+    "substep": "9.A.1",
+    "technique_id": "T1105",
+    "technique_name": "Remote File Copy",
+    "tactics": [
+      "Command and Control"
+    ]
+  },
+  {
+    "index": 63,
+    "substep": "9.A.2",
+    "technique_id": "T1105",
+    "technique_name": "Remote File Copy",
+    "tactics": [
+      "Command and Control"
+    ]
+  },
+  {
+    "index": 64,
+    "substep": "9.B.1",
+    "technique_id": "T1086",
+    "technique_name": "PowerShell",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 65,
+    "substep": "9.B.2",
+    "technique_id": "T1083",
+    "technique_name": "File and Directory Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 66,
+    "substep": "9.B.3",
+    "technique_id": "T1119",
+    "technique_name": "Automated Collection",
+    "tactics": [
+      "Collection"
+    ]
+  },
+  {
+    "index": 67,
+    "substep": "9.B.4",
+    "technique_id": "T1005",
+    "technique_name": "Data from Local System",
+    "tactics": [
+      "Collection"
+    ]
+  },
+  {
+    "index": 68,
+    "substep": "9.B.5",
+    "technique_id": "T1074",
+    "technique_name": "Data Staged",
+    "tactics": [
+      "Collection"
+    ]
+  },
+  {
+    "index": 69,
+    "substep": "9.B.6",
+    "technique_id": "T1022",
+    "technique_name": "Data Encrypted",
+    "tactics": [
+      "Exfiltration"
+    ]
+  },
+  {
+    "index": 70,
+    "substep": "9.B.7",
+    "technique_id": "T1002",
+    "technique_name": "Data Compressed",
+    "tactics": [
+      "Exfiltration"
+    ]
+  },
+  {
+    "index": 71,
+    "substep": "9.B.8",
+    "technique_id": "T1041",
+    "technique_name": "Exfiltration Over Command and Control Channel",
+    "tactics": [
+      "Exfiltration"
+    ]
+  },
+  {
+    "index": 72,
+    "substep": "9.C.1",
+    "technique_id": "T1107",
+    "technique_name": "File Deletion",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 73,
+    "substep": "9.C.2",
+    "technique_id": "T1107",
+    "technique_name": "File Deletion",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 74,
+    "substep": "9.C.3",
+    "technique_id": "T1107",
+    "technique_name": "File Deletion",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 75,
+    "substep": "9.C.4",
+    "technique_id": "T1107",
+    "technique_name": "File Deletion",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 76,
+    "substep": "10.A.1",
+    "technique_id": "T1035",
+    "technique_name": "Service Execution",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 77,
+    "substep": "10.B.1",
+    "technique_id": "T1060",
+    "technique_name": "Registry Run Keys / Startup Folder",
+    "tactics": [
+      "Persistence"
+    ]
+  },
+  {
+    "index": 78,
+    "substep": "10.B.2",
+    "technique_id": "T1106",
+    "technique_name": "Execution through API",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 79,
+    "substep": "10.B.3",
+    "technique_id": "T1134",
+    "technique_name": "Access Token Manipulation",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 80,
+    "substep": "11.A.1",
+    "technique_id": "T1204",
+    "technique_name": "User Execution",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 81,
+    "substep": "11.A.2",
+    "technique_id": "T1096",
+    "technique_name": "NTFS File Attributes",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 82,
+    "substep": "11.A.3",
+    "technique_id": "T1497",
+    "technique_name": "Virtualization/Sandbox Evasion",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 83,
+    "substep": "11.A.4",
+    "technique_id": "T1082",
+    "technique_name": "System Information Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 84,
+    "substep": "11.A.5",
+    "technique_id": "T1120",
+    "technique_name": "Peripheral Device Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 85,
+    "substep": "11.A.6",
+    "technique_id": "T1033",
+    "technique_name": "System Owner/User Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 86,
+    "substep": "11.A.7",
+    "technique_id": "T1016",
+    "technique_name": "System Network Configuration Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 87,
+    "substep": "11.A.8",
+    "technique_id": "T1057",
+    "technique_name": "Process Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 88,
+    "substep": "11.A.9",
+    "technique_id": "T1083",
+    "technique_name": "File and Directory Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 89,
+    "substep": "11.A.10",
+    "technique_id": "T1140",
+    "technique_name": "Deobfuscate/Decode Files or Information",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 90,
+    "substep": "11.A.11",
+    "technique_id": "T1060",
+    "technique_name": "Registry Run Keys / Startup Folder",
+    "tactics": [
+      "Persistence"
+    ]
+  },
+  {
+    "index": 91,
+    "substep": "11.A.12",
+    "technique_id": "T1086",
+    "technique_name": "PowerShell",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 92,
+    "substep": "11.A.13",
+    "technique_id": "T1043",
+    "technique_name": "Commonly Used Port",
+    "tactics": [
+      "Command and Control"
+    ]
+  },
+  {
+    "index": 93,
+    "substep": "11.A.14",
+    "technique_id": "T1071",
+    "technique_name": "Standard Application Layer Protocol",
+    "tactics": [
+      "Command and Control"
+    ]
+  },
+  {
+    "index": 94,
+    "substep": "11.A.15",
+    "technique_id": "T1032",
+    "technique_name": "Standard Cryptographic Protocol",
+    "tactics": [
+      "Command and Control"
+    ]
+  },
+  {
+    "index": 95,
+    "substep": "12.A.1",
+    "technique_id": "T1083",
+    "technique_name": "File and Directory Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 96,
+    "substep": "12.A.2",
+    "technique_id": "T1099",
+    "technique_name": "Timestomp",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 97,
+    "substep": "12.B.1",
+    "technique_id": "T1063",
+    "technique_name": "Security Software Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 98,
+    "substep": "12.C.1",
+    "technique_id": "T1012",
+    "technique_name": "Query Registry",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 99,
+    "substep": "12.C.2",
+    "technique_id": "T1012",
+    "technique_name": "Query Registry",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 100,
+    "substep": "13.A.1",
+    "technique_id": "T1082",
+    "technique_name": "System Information Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 101,
+    "substep": "13.B.1",
+    "technique_id": "T1016",
+    "technique_name": "System Network Configuration Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 102,
+    "substep": "13.C.1",
+    "technique_id": "T1033",
+    "technique_name": "System Owner/User Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 103,
+    "substep": "13.D.1",
+    "technique_id": "T1057",
+    "technique_name": "Process Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 104,
+    "substep": "14.A.1",
+    "technique_id": "T1122",
+    "technique_name": "Component Object Model Hijacking",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 105,
+    "substep": "14.A.2",
+    "technique_id": "T1088",
+    "technique_name": "Bypass User Account Control",
+    "tactics": [
+      "Privilege Escalation"
+    ]
+  },
+  {
+    "index": 106,
+    "substep": "14.A.3",
+    "technique_id": "T1112",
+    "technique_name": "Modify Registry",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 107,
+    "substep": "14.B.1",
+    "technique_id": "T1047",
+    "technique_name": "Windows Management Instrumentation",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 108,
+    "substep": "14.B.2",
+    "technique_id": "T1057",
+    "technique_name": "Process Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 109,
+    "substep": "14.B.3",
+    "technique_id": "T1105",
+    "technique_name": "Remote File Copy",
+    "tactics": [
+      "Command and Control"
+    ]
+  },
+  {
+    "index": 110,
+    "substep": "14.B.4",
+    "technique_id": "T1003",
+    "technique_name": "Credential Dumping",
+    "tactics": [
+      "Credential Access"
+    ]
+  },
+  {
+    "index": 111,
+    "substep": "14.B.5",
+    "technique_id": "T1027",
+    "technique_name": "Obfuscated Files or Information",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 112,
+    "substep": "14.B.6",
+    "technique_id": "T1140",
+    "technique_name": "Deobfuscate/Decode Files or Information",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 113,
+    "substep": "15.A.1",
+    "technique_id": "T1033",
+    "technique_name": "System Owner/User Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 114,
+    "substep": "15.A.2",
+    "technique_id": "T1084",
+    "technique_name": "Windows Management Instrumentation Event Subscription",
+    "tactics": [
+      "Persistence"
+    ]
+  },
+  {
+    "index": 115,
+    "substep": "16.A.1",
+    "technique_id": "T1018",
+    "technique_name": "Remote System Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 116,
+    "substep": "16.B.1",
+    "technique_id": "T1033",
+    "technique_name": "System Owner/User Discovery",
+    "tactics": [
+      "Discovery"
+    ]
+  },
+  {
+    "index": 117,
+    "substep": "16.B.2",
+    "technique_id": "T1106",
+    "technique_name": "Execution through API",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 118,
+    "substep": "16.C.1",
+    "technique_id": "T1028",
+    "technique_name": "Windows Remote Management",
+    "tactics": [
+      "Execution",
+      "Lateral Movement"
+    ]
+  },
+  {
+    "index": 119,
+    "substep": "16.C.2",
+    "technique_id": "T1078",
+    "technique_name": "Valid Accounts",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 120,
+    "substep": "16.D.1",
+    "technique_id": "T1105",
+    "technique_name": "Remote File Copy",
+    "tactics": [
+      "Command and Control"
+    ]
+  },
+  {
+    "index": 121,
+    "substep": "16.D.2",
+    "technique_id": "T1003",
+    "technique_name": "Credential Dumping",
+    "tactics": [
+      "Credential Access"
+    ]
+  },
+  {
+    "index": 122,
+    "substep": "17.A.1",
+    "technique_id": "T1114",
+    "technique_name": "Email Collection",
+    "tactics": [
+      "Collection"
+    ]
+  },
+  {
+    "index": 123,
+    "substep": "17.B.1",
+    "technique_id": "T1005",
+    "technique_name": "Data from Local System",
+    "tactics": [
+      "Collection"
+    ]
+  },
+  {
+    "index": 124,
+    "substep": "17.B.2",
+    "technique_id": "T1074",
+    "technique_name": "Data Staged",
+    "tactics": [
+      "Collection"
+    ]
+  },
+  {
+    "index": 125,
+    "substep": "17.C.1",
+    "technique_id": "T1002",
+    "technique_name": "Data Compressed",
+    "tactics": [
+      "Exfiltration"
+    ]
+  },
+  {
+    "index": 126,
+    "substep": "17.C.2",
+    "technique_id": "T1027",
+    "technique_name": "Obfuscated Files or Information",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 127,
+    "substep": "18.A.1",
+    "technique_id": "T1102",
+    "technique_name": "Web Service",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 128,
+    "substep": "18.A.2",
+    "technique_id": "T1048",
+    "technique_name": "Exfiltration Over Alternative Protocol",
+    "tactics": [
+      "Exfiltration"
+    ]
+  },
+  {
+    "index": 129,
+    "substep": "19.A.1",
+    "technique_id": "T1107",
+    "technique_name": "File Deletion",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 130,
+    "substep": "19.A.2",
+    "technique_id": "T1055",
+    "technique_name": "Process Injection",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 131,
+    "substep": "19.B.1",
+    "technique_id": "T1107",
+    "technique_name": "File Deletion",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 132,
+    "substep": "19.B.2",
+    "technique_id": "T1055",
+    "technique_name": "Process Injection",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 133,
+    "substep": "19.C.1",
+    "technique_id": "T1107",
+    "technique_name": "File Deletion",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 134,
+    "substep": "19.C.2",
+    "technique_id": "T1055",
+    "technique_name": "Process Injection",
+    "tactics": [
+      "Defense Evasion"
+    ]
+  },
+  {
+    "index": 135,
+    "substep": "20.A.1",
+    "technique_id": "T1085",
+    "technique_name": "Rundll32",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 136,
+    "substep": "20.A.2",
+    "technique_id": "T1084",
+    "technique_name": "Windows Management Instrumentation Event Subscription",
+    "tactics": [
+      "Persistence"
+    ]
+  },
+  {
+    "index": 137,
+    "substep": "20.A.3",
+    "technique_id": "T1086",
+    "technique_name": "PowerShell",
+    "tactics": [
+      "Execution"
+    ]
+  },
+  {
+    "index": 138,
+    "substep": "20.B.1",
+    "technique_id": "T1097",
+    "technique_name": "Pass the Ticket",
+    "tactics": [
+      "Lateral Movement"
+    ]
+  },
+  {
+    "index": 139,
+    "substep": "20.B.2",
+    "technique_id": "T1028",
+    "technique_name": "Windows Remote Management",
+    "tactics": [
+      "Execution",
+      "Lateral Movement"
+    ]
+  },
+  {
+    "index": 140,
+    "substep": "20.B.3",
+    "technique_id": "T1136",
+    "technique_name": "Create Account",
+    "tactics": [
+      "Persistence"
+    ]
+  }
+]

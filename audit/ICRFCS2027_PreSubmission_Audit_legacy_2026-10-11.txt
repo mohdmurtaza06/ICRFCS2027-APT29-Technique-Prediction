@@ -1,0 +1,68 @@
+ICRFCS 2027 MANUSCRIPT REVISION AND PRE-SUBMISSION AUDIT
+Generated: 11 October 2026
+Manuscript: “Next-Technique Prediction in an APT29 Evaluation Sequence: A Pilot Benchmark”
+
+OVERALL VERDICT
+NOT YET CLEARED FOR SUBMISSION AS A FULLY VALIDATED EMPIRICAL PAPER. The manuscript is more cautious, now includes a cross-vendor sequence reconstruction check, is anonymized, and is five pages in IEEEtran two-column form. The most important remaining blockers concern model-score reproducibility, the clustering baseline's ranked-list definition, and synthetic generator counts. The revision does not invent results or state that experiments were rerun.
+
+NEWLY COMPLETED: PUBLIC-SOURCE CROSS-VENDOR SEQUENCE CHECK
+The MITRE ATT&CK Evaluations public JSON files were inspected for McAfee, Microsoft, FireEye, CrowdStrike, and Bitdefender from:
+https://github.com/mitre-attack/joystick/tree/master/data/evaluations/apt29
+
+For each file, structured Techniques[].Steps[] records were flattened and sorted by parsed SubStep: numeric major step, branch letter, numeric suborder. Each file yielded 140 unique substep labels and 58 unique technique IDs. The ordered (SubStep, TechniqueId) pairs matched exactly across all five vendor files. This closes the narrower question of whether the sequence order is an artifact of one vendor export. It does NOT make the evaluation five campaigns; the files represent the same MITRE-designed APT29 emulation flow. The paper now states this explicitly and cites the public data repository.
+
+A reproducible helper script is included at scripts/reconstruct_apt29_sequence.py. On a computer with internet access, run:
+  python scripts/reconstruct_apt29_sequence.py --download-mitre-five-vendors --data-dir data --outdir artifacts
+It writes the ordered sequence, machine-readable comparison results, and text summary. Four unit tests passed locally. Those tests exercise sorting, duplicate rejection, and identity/mismatch handling on small fixtures; they are not a download-and-full-data test of the original model experiments.
+
+WHAT WAS IMPROVED
+1. Narrowed the paper's claims to a pilot top-k benchmark over a single APT29 evaluation/emulation sequence.
+2. Corrected the top-k narrative: the reported mixed-training LSTM has top-3 4/42 (9.5%); first-order Markov has top-5 7/42 (16.7%). Both counts remain derived from rounded aggregate table values, not verified from raw model forecasts.
+3. Defined top-k accuracy, distinguished teacher-forced one-step evaluation from free-running rollout, and made dependent test positions explicit.
+4. Described tactic ordering as a generator heuristic, not a universal MITRE-mandated attack chronology.
+5. Added related work on HMM/Markov ATT&CK prediction and contemporary hybrid LSTM-Markov forecasting; narrowed novelty and generalization claims.
+6. Verified that five public vendor JSON files produce identical ordered (SubStep, TechniqueId) pairs for the same 140-step flow.
+7. Added a local reconstruction script plus a prediction-log metric validator, a 42-position CSV template, six automated fixture tests, and this audit report. The prediction-log validator recomputes scores from recorded rankings; it does not reproduce model training.
+8. The PDF was compiled with IEEEtran, visually rendered and inspected; it has five pages, US Letter page size, no author name/affiliation, and blank PDF Author metadata. References resolve after multiple LaTeX passes. No overfull-box warnings were found in the final compile log.
+
+CRITICAL 1 — REPORTED TOP-K SCORES NOT REPRODUCED
+Current table counts implied by the rounded metrics are:
+- Global frequency: top-1 1, top-3 2, top-5 3 of 42.
+- Co-occurrence clustering: top-1 1, top-3 2, top-5 3 of 42.
+- Second-order Markov: top-1 0, top-3 3, top-5 6 of 42.
+- First-order Markov: top-1 0, top-3 3, top-5 7 of 42.
+- LSTM pretrain + fine-tune: top-1 1, top-3 3, top-5 4 of 42.
+- LSTM mixed training: top-1 0, top-3 4, top-5 5 of 42.
+These are arithmetic conversions of the paper's displayed rounded values, not an independent results reproduction.
+Required: the 42 per-position prediction rankings for each method, plus code that builds those rankings and computes top-k metrics. Recompute all metrics from those raw outputs before submitting. If those artifacts cannot be recovered, rerun a clearly defined implementation and replace the table.
+
+CRITICAL 2 — CLUSTERING RANKING RULE
+The prose describes selecting a cluster and predicting its most frequent other member, but top-3/top-5 require a complete ranked candidate list. Specify the exact algorithm for ranking candidates, resolving ties, and handling an unseen technique/cluster transition. Reproduce the original rule from implementation or rerun with a predeclared rule. Do not invent a new rule after seeing test results and represent it as the original.
+
+MAJOR 3 — SYNTHETIC GENERATOR COUNTS
+The reported generator uses 500 lengths said to be sampled uniformly between 20 and 140, reports mean length 75.5, and claims 37,274 next-technique training instances. Verify actual length draws, endpoint convention, random seed, and window/prefix construction from code and saved outputs. The expectation of a discrete uniform draw over 20..140 is 80, but a realized mean differs randomly; this discrepancy alone does not prove an error. Do not alter counts without checking the implementation.
+
+MAJOR 4 — MODEL REPRODUCIBILITY
+Still needed: generator source, model code, ranking functions, package versions, fixed seeds, hyperparameters, saved checkpoints or training logs, held-out forecasts, metric code, and clear split construction. Confirm the final 42 positions were never used in fitting, hyperparameter selection, or synthetic-generator tuning.
+
+MAJOR 5 — GENERALIZATION AND UNCERTAINTY
+There is one emulation flow and 42 sequentially dependent prediction positions. Cross-vendor reconstruction checks validate the same source sequence, not campaign-level generalization. Run multiple seeds and report variability. Stronger evidence needs independently sourced ordered sequences and campaign-held-out testing. Keep teacher-forced accuracy separate from free-running forecasts. Aggregate results alone do not support significance claims.
+
+MODERATE 6 — SIMILARITY THRESHOLD
+No similarity report was run. The conference page states a maximum 15% similarity requirement. Run an appropriate institutional or conference-approved check, inspect matched text, and correct citations where necessary. Do not claim compliance until you have the actual report.
+
+MODERATE 7 — CONFERENCE PUBLICATION DETAILS
+The conference site states that accepted/presented papers are to be submitted for consideration for IEEE Xplore, subject to the publication process. That is not a guarantee that this paper will be accepted or indexed. Verify the official IEEE conference record and publication terms before paying fees.
+
+FORMATTING / ANONYMITY CHECK
+- Page count: 5 (within the advertised 4–6 pages).
+- IEEEtran conference class and two-column layout: yes.
+- Author name, affiliation, and acknowledgments: absent.
+- PDF Author metadata: blank.
+- Visual render check: all five pages; no clipping or overlap observed.
+- LaTeX unresolved citations/references on final pass: none.
+- Similarity report: not run.
+- Experimental scores and generator: not independently reproduced.
+
+RECOMMENDED NEXT GATE
+Do not label the paper fully validated or ready for final submission until Critical 1 and Critical 2 are resolved and Major 3 is checked. The new public-source reconstruction consistency check is complete, but it cannot stand in for model-score replication.

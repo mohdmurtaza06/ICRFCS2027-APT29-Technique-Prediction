@@ -1,0 +1,806 @@
+{
+  "status": "PASS",
+  "interpretation": "Descriptive sensitivity across three seeds evaluated on the same dependent 42-position suffix; seeds are not independent campaigns.",
+  "comparability_checks": {
+    "seeds": [
+      "20261011",
+      "20261012",
+      "20261013"
+    ],
+    "test_positions": 42,
+    "context_positions": 98,
+    "python_and_package_versions": {
+      "python": "3.13.15",
+      "numpy": "2.5.4",
+      "torch": "2.14.1",
+      "pandas": "not-installed",
+      "scikit-learn": "not-installed"
+    },
+    "script_hashes": {
+      "run_benchmark.py": "b653d07e7c5bdd6fb581fed1b69af2693bab56019bb79d9b493c66d0bb6a0364",
+      "load_attack_catalogue.py": "86ed7e0015be450737014749615fc5d1e74a6e81859aed1c359e1238a29e6813",
+      "reconstruct_apt29_sequence.py": "ba392cfeb668980f65a9f23d08320d8e0457912f03ff29e0546b65375299d63e"
+    },
+    "source_hashes": [
+      {
+        "file": "McAfee.1.APT29.1_Results.json",
+        "sha256": "255e2af62bd9defd9bc82bf8bbb81cd89963246170a1554036edb7829a74e71f"
+      },
+      {
+        "file": "Microsoft.1.APT29.1_Results.json",
+        "sha256": "32a5e1f2bd2d79e850b880776ca295241345c2e7833fb3676f631334e6d22795"
+      },
+      {
+        "file": "FireEye.1.APT29.1_Results.json",
+        "sha256": "53d79e459f59af08cd5a7fd683780ef0935d26fbc0e46c03d32aa9b9b2ed0dc1"
+      },
+      {
+        "file": "CrowdStrike.1.APT29.1_Results.json",
+        "sha256": "88adcf9b1dd68d5062e118268e8143de03140e2506724f261f9c15f259ce33d7"
+      },
+      {
+        "file": "Bitdefender.1.APT29.1_Results.json",
+        "sha256": "c461a0a0518860713433cc7ddbdefc924c6275566e9543db55724e9528c1bf9a"
+      },
+      {
+        "file": "enterprise-attack-18.1.json",
+        "sha256": "f857d8f78f2f0c0b7db321a711a39fba98546c1e3076a657684850c83d0962fb"
+      }
+    ],
+    "candidate_vocabulary_size": 835,
+    "sequence_length": 140,
+    "lstm_epochs": 35,
+    "lstm_window_size": 6,
+    "synthetic_sequences_per_seed": 500
+  },
+  "conditions": {
+    "primary": {
+      "run_directory": "C:\\Users\\murta\\Desktop\\ICRFCS2027_FINAL_COMPLETION_PACKAGE_2026-10-12\\ICRFCS2027_Final_Rebuild\\audit\\windows_acceptance_20261012_235149\\full_rebuild\\primary",
+      "generator_policy": {
+        "seeds": [
+          20261011,
+          20261012,
+          20261013
+        ],
+        "synthetic_sequences_per_seed": 500,
+        "synthetic_length_bounds": [
+          20,
+          140
+        ],
+        "lstm_epochs": 35,
+        "torch_cpu_intraop_threads": 1,
+        "lstm_window_size": 6,
+        "context_positions": 98,
+        "test_positions": 42,
+        "tactic_walk_order": [
+          "Reconnaissance",
+          "Resource Development",
+          "Initial Access",
+          "Execution",
+          "Persistence",
+          "Privilege Escalation",
+          "Defense Evasion",
+          "Credential Access",
+          "Discovery",
+          "Lateral Movement",
+          "Collection",
+          "Command and Control",
+          "Exfiltration",
+          "Impact"
+        ],
+        "tactic_walk_boundary": "reflect",
+        "tactic_sampling_policy": "walk",
+        "synthetic_technique_status_policy": "all_catalogue_statuses_retained"
+      },
+      "reconciliation_passed": true,
+      "methods": {
+        "frequency": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 0,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.0,
+            "sample_sd_accuracy_percentage_points": 0.0
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 0,
+              "20261013": 1
+            },
+            "mean_accuracy_pct": 0.7936507936507936,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 1,
+              "20261012": 0,
+              "20261013": 1
+            },
+            "mean_accuracy_pct": 1.5873015873015872,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          }
+        },
+        "cooccurrence": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 1,
+              "20261012": 0,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.7936507936507936,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 2,
+              "20261012": 0,
+              "20261013": 1
+            },
+            "mean_accuracy_pct": 2.380952380952381,
+            "sample_sd_accuracy_percentage_points": 2.380952380952381
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 4,
+              "20261012": 2,
+              "20261013": 2
+            },
+            "mean_accuracy_pct": 6.349206349206349,
+            "sample_sd_accuracy_percentage_points": 2.749286996141075
+          }
+        },
+        "markov1": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 1,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.7936507936507936,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 3,
+              "20261012": 2,
+              "20261013": 2
+            },
+            "mean_accuracy_pct": 5.555555555555555,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705378
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 5,
+              "20261012": 5,
+              "20261013": 6
+            },
+            "mean_accuracy_pct": 12.6984126984127,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705378
+          }
+        },
+        "markov2_backoff": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 2,
+              "20261012": 2,
+              "20261013": 2
+            },
+            "mean_accuracy_pct": 4.761904761904762,
+            "sample_sd_accuracy_percentage_points": 0.0
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 3,
+              "20261012": 2,
+              "20261013": 3
+            },
+            "mean_accuracy_pct": 6.34920634920635,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705378
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 5,
+              "20261012": 4,
+              "20261013": 6
+            },
+            "mean_accuracy_pct": 11.904761904761905,
+            "sample_sd_accuracy_percentage_points": 2.3809523809523814
+          }
+        },
+        "lstm": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 0,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.0,
+            "sample_sd_accuracy_percentage_points": 0.0
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 2,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 1.5873015873015872,
+            "sample_sd_accuracy_percentage_points": 2.749286996141075
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 2,
+              "20261012": 2,
+              "20261013": 3
+            },
+            "mean_accuracy_pct": 5.555555555555555,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705378
+          }
+        }
+      }
+    },
+    "clamp": {
+      "run_directory": "C:\\Users\\murta\\Desktop\\ICRFCS2027_FINAL_COMPLETION_PACKAGE_2026-10-12\\ICRFCS2027_Final_Rebuild\\audit\\windows_acceptance_20261012_235149\\full_rebuild\\clamp",
+      "generator_policy": {
+        "seeds": [
+          20261011,
+          20261012,
+          20261013
+        ],
+        "synthetic_sequences_per_seed": 500,
+        "synthetic_length_bounds": [
+          20,
+          140
+        ],
+        "lstm_epochs": 35,
+        "torch_cpu_intraop_threads": 1,
+        "lstm_window_size": 6,
+        "context_positions": 98,
+        "test_positions": 42,
+        "tactic_walk_order": [
+          "Reconnaissance",
+          "Resource Development",
+          "Initial Access",
+          "Execution",
+          "Persistence",
+          "Privilege Escalation",
+          "Defense Evasion",
+          "Credential Access",
+          "Discovery",
+          "Lateral Movement",
+          "Collection",
+          "Command and Control",
+          "Exfiltration",
+          "Impact"
+        ],
+        "tactic_walk_boundary": "clamp",
+        "tactic_sampling_policy": "walk",
+        "synthetic_technique_status_policy": "all_catalogue_statuses_retained"
+      },
+      "reconciliation_passed": true,
+      "methods": {
+        "frequency": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 0,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.0,
+            "sample_sd_accuracy_percentage_points": 0.0
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 0,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.0,
+            "sample_sd_accuracy_percentage_points": 0.0
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 0,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.0,
+            "sample_sd_accuracy_percentage_points": 0.0
+          }
+        },
+        "cooccurrence": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 1,
+              "20261012": 1,
+              "20261013": 2
+            },
+            "mean_accuracy_pct": 3.1746031746031744,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 2,
+              "20261012": 3,
+              "20261013": 3
+            },
+            "mean_accuracy_pct": 6.34920634920635,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705378
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 5,
+              "20261012": 5,
+              "20261013": 5
+            },
+            "mean_accuracy_pct": 11.904761904761905,
+            "sample_sd_accuracy_percentage_points": 0.0
+          }
+        },
+        "markov1": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 1,
+              "20261012": 1,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 1.5873015873015872,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 4,
+              "20261012": 3,
+              "20261013": 3
+            },
+            "mean_accuracy_pct": 7.936507936507937,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705373
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 6,
+              "20261012": 5,
+              "20261013": 4
+            },
+            "mean_accuracy_pct": 11.904761904761905,
+            "sample_sd_accuracy_percentage_points": 2.3809523809523814
+          }
+        },
+        "markov2_backoff": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 3,
+              "20261012": 2,
+              "20261013": 2
+            },
+            "mean_accuracy_pct": 5.555555555555555,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705378
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 5,
+              "20261012": 3,
+              "20261013": 3
+            },
+            "mean_accuracy_pct": 8.730158730158731,
+            "sample_sd_accuracy_percentage_points": 2.749286996141075
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 6,
+              "20261012": 4,
+              "20261013": 4
+            },
+            "mean_accuracy_pct": 11.11111111111111,
+            "sample_sd_accuracy_percentage_points": 2.7492869961410755
+          }
+        },
+        "lstm": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 0,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.0,
+            "sample_sd_accuracy_percentage_points": 0.0
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 0,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.0,
+            "sample_sd_accuracy_percentage_points": 0.0
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 0,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.0,
+            "sample_sd_accuracy_percentage_points": 0.0
+          }
+        }
+      }
+    },
+    "uniform_tactic": {
+      "run_directory": "C:\\Users\\murta\\Desktop\\ICRFCS2027_FINAL_COMPLETION_PACKAGE_2026-10-12\\ICRFCS2027_Final_Rebuild\\audit\\windows_acceptance_20261012_235149\\full_rebuild\\uniform_tactic",
+      "generator_policy": {
+        "seeds": [
+          20261011,
+          20261012,
+          20261013
+        ],
+        "synthetic_sequences_per_seed": 500,
+        "synthetic_length_bounds": [
+          20,
+          140
+        ],
+        "lstm_epochs": 35,
+        "torch_cpu_intraop_threads": 1,
+        "lstm_window_size": 6,
+        "context_positions": 98,
+        "test_positions": 42,
+        "tactic_walk_order": [
+          "Reconnaissance",
+          "Resource Development",
+          "Initial Access",
+          "Execution",
+          "Persistence",
+          "Privilege Escalation",
+          "Defense Evasion",
+          "Credential Access",
+          "Discovery",
+          "Lateral Movement",
+          "Collection",
+          "Command and Control",
+          "Exfiltration",
+          "Impact"
+        ],
+        "tactic_walk_boundary": "not_applicable_for_independent_uniform_tactic_sampling",
+        "tactic_sampling_policy": "uniform",
+        "synthetic_technique_status_policy": "all_catalogue_statuses_retained"
+      },
+      "reconciliation_passed": true,
+      "methods": {
+        "frequency": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 0,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.0,
+            "sample_sd_accuracy_percentage_points": 0.0
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 1,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.7936507936507936,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 1,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.7936507936507936,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          }
+        },
+        "cooccurrence": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 3,
+              "20261012": 2,
+              "20261013": 2
+            },
+            "mean_accuracy_pct": 5.555555555555555,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705378
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 4,
+              "20261012": 3,
+              "20261013": 3
+            },
+            "mean_accuracy_pct": 7.936507936507937,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705373
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 4,
+              "20261012": 6,
+              "20261013": 3
+            },
+            "mean_accuracy_pct": 10.317460317460318,
+            "sample_sd_accuracy_percentage_points": 3.63696483726654
+          }
+        },
+        "markov1": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 1,
+              "20261012": 0,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.7936507936507936,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 2,
+              "20261012": 2,
+              "20261013": 1
+            },
+            "mean_accuracy_pct": 3.9682539682539684,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 4,
+              "20261012": 5,
+              "20261013": 5
+            },
+            "mean_accuracy_pct": 11.11111111111111,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705378
+          }
+        },
+        "markov2_backoff": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 3,
+              "20261012": 2,
+              "20261013": 2
+            },
+            "mean_accuracy_pct": 5.555555555555555,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705378
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 3,
+              "20261012": 3,
+              "20261013": 2
+            },
+            "mean_accuracy_pct": 6.34920634920635,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705378
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 4,
+              "20261012": 6,
+              "20261013": 5
+            },
+            "mean_accuracy_pct": 11.904761904761905,
+            "sample_sd_accuracy_percentage_points": 2.3809523809523814
+          }
+        },
+        "lstm": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 0,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.0,
+            "sample_sd_accuracy_percentage_points": 0.0
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 0,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.0,
+            "sample_sd_accuracy_percentage_points": 0.0
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 1,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.7936507936507936,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          }
+        }
+      }
+    },
+    "active_only": {
+      "run_directory": "C:\\Users\\murta\\Desktop\\ICRFCS2027_FINAL_COMPLETION_PACKAGE_2026-10-12\\ICRFCS2027_Final_Rebuild\\audit\\windows_acceptance_20261012_235149\\full_rebuild\\active_only",
+      "generator_policy": {
+        "seeds": [
+          20261011,
+          20261012,
+          20261013
+        ],
+        "synthetic_sequences_per_seed": 500,
+        "synthetic_length_bounds": [
+          20,
+          140
+        ],
+        "lstm_epochs": 35,
+        "torch_cpu_intraop_threads": 1,
+        "lstm_window_size": 6,
+        "context_positions": 98,
+        "test_positions": 42,
+        "tactic_walk_order": [
+          "Reconnaissance",
+          "Resource Development",
+          "Initial Access",
+          "Execution",
+          "Persistence",
+          "Privilege Escalation",
+          "Defense Evasion",
+          "Credential Access",
+          "Discovery",
+          "Lateral Movement",
+          "Collection",
+          "Command and Control",
+          "Exfiltration",
+          "Impact"
+        ],
+        "tactic_walk_boundary": "reflect",
+        "tactic_sampling_policy": "walk",
+        "synthetic_technique_status_policy": "active_only"
+      },
+      "reconciliation_passed": true,
+      "methods": {
+        "frequency": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 1,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.7936507936507936,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 1,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.7936507936507936,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 1,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.7936507936507936,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          }
+        },
+        "cooccurrence": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 0,
+              "20261012": 0,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 0.0,
+            "sample_sd_accuracy_percentage_points": 0.0
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 1,
+              "20261012": 1,
+              "20261013": 1
+            },
+            "mean_accuracy_pct": 2.380952380952381,
+            "sample_sd_accuracy_percentage_points": 0.0
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 2,
+              "20261012": 1,
+              "20261013": 1
+            },
+            "mean_accuracy_pct": 3.1746031746031744,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          }
+        },
+        "markov1": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 1,
+              "20261012": 1,
+              "20261013": 1
+            },
+            "mean_accuracy_pct": 2.380952380952381,
+            "sample_sd_accuracy_percentage_points": 0.0
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 4,
+              "20261012": 5,
+              "20261013": 4
+            },
+            "mean_accuracy_pct": 10.317460317460318,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705378
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 4,
+              "20261012": 5,
+              "20261013": 4
+            },
+            "mean_accuracy_pct": 10.317460317460318,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705378
+          }
+        },
+        "markov2_backoff": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 3,
+              "20261012": 3,
+              "20261013": 3
+            },
+            "mean_accuracy_pct": 7.142857142857143,
+            "sample_sd_accuracy_percentage_points": 0.0
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 5,
+              "20261012": 5,
+              "20261013": 5
+            },
+            "mean_accuracy_pct": 11.904761904761905,
+            "sample_sd_accuracy_percentage_points": 0.0
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 5,
+              "20261012": 5,
+              "20261013": 5
+            },
+            "mean_accuracy_pct": 11.904761904761905,
+            "sample_sd_accuracy_percentage_points": 0.0
+          }
+        },
+        "lstm": {
+          "top1": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 1,
+              "20261012": 1,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 1.5873015873015872,
+            "sample_sd_accuracy_percentage_points": 1.3746434980705375
+          },
+          "top3": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 2,
+              "20261012": 2,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 3.1746031746031744,
+            "sample_sd_accuracy_percentage_points": 2.749286996141075
+          },
+          "top5": {
+            "hits_by_seed_out_of_42": {
+              "20261011": 2,
+              "20261012": 3,
+              "20261013": 0
+            },
+            "mean_accuracy_pct": 3.9682539682539684,
+            "sample_sd_accuracy_percentage_points": 3.63696483726654
+          }
+        }
+      }
+    }
+  }
+}

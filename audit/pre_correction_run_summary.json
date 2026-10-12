@@ -1,0 +1,269 @@
+{
+  "status": "historical pre-correction diagnostic only",
+  "not_for_submission": true,
+  "source": "metrics and independent CSV-audit values reported by the author in conversation on 2026-10-11",
+  "raw_ranked_prediction_csvs_in_this_source_archive": false,
+  "candidate_vocabulary": "58 technique IDs derived from the complete 140-step APT29 sequence before the 98/42 split",
+  "known_methodology_issue": "The candidate vocabulary depends on held-out technique identities; do not treat these as corrected open-catalogue scores.",
+  "seed_level_hits_top1_top3_top5": {
+    "20261011": {
+      "frequency": [
+        1,
+        1,
+        2
+      ],
+      "cooccurrence": [
+        0,
+        4,
+        5
+      ],
+      "markov1": [
+        0,
+        2,
+        4
+      ],
+      "markov2_backoff": [
+        1,
+        6,
+        7
+      ],
+      "lstm": [
+        1,
+        2,
+        4
+      ]
+    },
+    "20261012": {
+      "frequency": [
+        0,
+        1,
+        2
+      ],
+      "cooccurrence": [
+        1,
+        5,
+        5
+      ],
+      "markov1": [
+        0,
+        1,
+        4
+      ],
+      "markov2_backoff": [
+        2,
+        2,
+        7
+      ],
+      "lstm": [
+        2,
+        3,
+        8
+      ]
+    },
+    "20261013": {
+      "frequency": [
+        1,
+        2,
+        2
+      ],
+      "cooccurrence": [
+        2,
+        5,
+        5
+      ],
+      "markov1": [
+        0,
+        2,
+        5
+      ],
+      "markov2_backoff": [
+        1,
+        5,
+        7
+      ],
+      "lstm": [
+        0,
+        3,
+        6
+      ]
+    }
+  },
+  "descriptive_summary": {
+    "frequency": {
+      "top1": {
+        "hits_by_seed": {
+          "20261011": 1,
+          "20261012": 0,
+          "20261013": 1
+        },
+        "mean_accuracy_across_three_runs": 0.015873015873015872,
+        "mean_accuracy_percent": 1.59,
+        "sum_of_run_hits": 2,
+        "denominator_interpretation": "42 positions per run; runs reuse the same target sequence and are not independent samples"
+      },
+      "top3": {
+        "hits_by_seed": {
+          "20261011": 1,
+          "20261012": 1,
+          "20261013": 2
+        },
+        "mean_accuracy_across_three_runs": 0.031746031746031744,
+        "mean_accuracy_percent": 3.17,
+        "sum_of_run_hits": 4,
+        "denominator_interpretation": "42 positions per run; runs reuse the same target sequence and are not independent samples"
+      },
+      "top5": {
+        "hits_by_seed": {
+          "20261011": 2,
+          "20261012": 2,
+          "20261013": 2
+        },
+        "mean_accuracy_across_three_runs": 0.047619047619047616,
+        "mean_accuracy_percent": 4.76,
+        "sum_of_run_hits": 6,
+        "denominator_interpretation": "42 positions per run; runs reuse the same target sequence and are not independent samples"
+      }
+    },
+    "cooccurrence": {
+      "top1": {
+        "hits_by_seed": {
+          "20261011": 0,
+          "20261012": 1,
+          "20261013": 2
+        },
+        "mean_accuracy_across_three_runs": 0.023809523809523808,
+        "mean_accuracy_percent": 2.38,
+        "sum_of_run_hits": 3,
+        "denominator_interpretation": "42 positions per run; runs reuse the same target sequence and are not independent samples"
+      },
+      "top3": {
+        "hits_by_seed": {
+          "20261011": 4,
+          "20261012": 5,
+          "20261013": 5
+        },
+        "mean_accuracy_across_three_runs": 0.1111111111111111,
+        "mean_accuracy_percent": 11.11,
+        "sum_of_run_hits": 14,
+        "denominator_interpretation": "42 positions per run; runs reuse the same target sequence and are not independent samples"
+      },
+      "top5": {
+        "hits_by_seed": {
+          "20261011": 5,
+          "20261012": 5,
+          "20261013": 5
+        },
+        "mean_accuracy_across_three_runs": 0.11904761904761904,
+        "mean_accuracy_percent": 11.9,
+        "sum_of_run_hits": 15,
+        "denominator_interpretation": "42 positions per run; runs reuse the same target sequence and are not independent samples"
+      }
+    },
+    "markov1": {
+      "top1": {
+        "hits_by_seed": {
+          "20261011": 0,
+          "20261012": 0,
+          "20261013": 0
+        },
+        "mean_accuracy_across_three_runs": 0.0,
+        "mean_accuracy_percent": 0.0,
+        "sum_of_run_hits": 0,
+        "denominator_interpretation": "42 positions per run; runs reuse the same target sequence and are not independent samples"
+      },
+      "top3": {
+        "hits_by_seed": {
+          "20261011": 2,
+          "20261012": 1,
+          "20261013": 2
+        },
+        "mean_accuracy_across_three_runs": 0.03968253968253968,
+        "mean_accuracy_percent": 3.97,
+        "sum_of_run_hits": 5,
+        "denominator_interpretation": "42 positions per run; runs reuse the same target sequence and are not independent samples"
+      },
+      "top5": {
+        "hits_by_seed": {
+          "20261011": 4,
+          "20261012": 4,
+          "20261013": 5
+        },
+        "mean_accuracy_across_three_runs": 0.10317460317460317,
+        "mean_accuracy_percent": 10.32,
+        "sum_of_run_hits": 13,
+        "denominator_interpretation": "42 positions per run; runs reuse the same target sequence and are not independent samples"
+      }
+    },
+    "markov2_backoff": {
+      "top1": {
+        "hits_by_seed": {
+          "20261011": 1,
+          "20261012": 2,
+          "20261013": 1
+        },
+        "mean_accuracy_across_three_runs": 0.031746031746031744,
+        "mean_accuracy_percent": 3.17,
+        "sum_of_run_hits": 4,
+        "denominator_interpretation": "42 positions per run; runs reuse the same target sequence and are not independent samples"
+      },
+      "top3": {
+        "hits_by_seed": {
+          "20261011": 6,
+          "20261012": 2,
+          "20261013": 5
+        },
+        "mean_accuracy_across_three_runs": 0.10317460317460317,
+        "mean_accuracy_percent": 10.32,
+        "sum_of_run_hits": 13,
+        "denominator_interpretation": "42 positions per run; runs reuse the same target sequence and are not independent samples"
+      },
+      "top5": {
+        "hits_by_seed": {
+          "20261011": 7,
+          "20261012": 7,
+          "20261013": 7
+        },
+        "mean_accuracy_across_three_runs": 0.16666666666666666,
+        "mean_accuracy_percent": 16.67,
+        "sum_of_run_hits": 21,
+        "denominator_interpretation": "42 positions per run; runs reuse the same target sequence and are not independent samples"
+      }
+    },
+    "lstm": {
+      "top1": {
+        "hits_by_seed": {
+          "20261011": 1,
+          "20261012": 2,
+          "20261013": 0
+        },
+        "mean_accuracy_across_three_runs": 0.023809523809523808,
+        "mean_accuracy_percent": 2.38,
+        "sum_of_run_hits": 3,
+        "denominator_interpretation": "42 positions per run; runs reuse the same target sequence and are not independent samples"
+      },
+      "top3": {
+        "hits_by_seed": {
+          "20261011": 2,
+          "20261012": 3,
+          "20261013": 3
+        },
+        "mean_accuracy_across_three_runs": 0.06349206349206349,
+        "mean_accuracy_percent": 6.35,
+        "sum_of_run_hits": 8,
+        "denominator_interpretation": "42 positions per run; runs reuse the same target sequence and are not independent samples"
+      },
+      "top5": {
+        "hits_by_seed": {
+          "20261011": 4,
+          "20261012": 8,
+          "20261013": 6
+        },
+        "mean_accuracy_across_three_runs": 0.14285714285714285,
+        "mean_accuracy_percent": 14.29,
+        "sum_of_run_hits": 18,
+        "denominator_interpretation": "42 positions per run; runs reuse the same target sequence and are not independent samples"
+      }
+    }
+  },
+  "interpretation": "Retained as an audit trail only. The corrected implementation changes the candidate universe and rolling frequency-baseline protocol; these scores are not comparable to the corrected benchmark."
+}

@@ -1,0 +1,123 @@
+{
+  "description": "Cross-check of regenerated runs against the seed-level hit counts and mean accuracies stated in the project handover (section 5; original artifacts_reflecting_walk directory was not in the archive, so the handover text is the only available record of them).",
+  "handover_seed_hits_top1_top3_top5": {
+    "20261011": {
+      "frequency": [
+        0,
+        0,
+        1
+      ],
+      "cooccurrence": [
+        1,
+        2,
+        4
+      ],
+      "markov1": [
+        0,
+        3,
+        5
+      ],
+      "markov2_backoff": [
+        2,
+        3,
+        5
+      ],
+      "lstm": [
+        0,
+        0,
+        2
+      ]
+    },
+    "20261012": {
+      "frequency": [
+        0,
+        0,
+        0
+      ],
+      "cooccurrence": [
+        0,
+        0,
+        2
+      ],
+      "markov1": [
+        1,
+        2,
+        5
+      ],
+      "markov2_backoff": [
+        2,
+        2,
+        4
+      ],
+      "lstm": [
+        0,
+        2,
+        2
+      ]
+    },
+    "20261013": {
+      "frequency": [
+        0,
+        1,
+        1
+      ],
+      "cooccurrence": [
+        0,
+        1,
+        2
+      ],
+      "markov1": [
+        0,
+        2,
+        6
+      ],
+      "markov2_backoff": [
+        2,
+        3,
+        6
+      ],
+      "lstm": [
+        0,
+        0,
+        3
+      ]
+    }
+  },
+  "handover_mean_accuracy_pct": {
+    "frequency": [
+      0.0,
+      0.79,
+      1.59
+    ],
+    "cooccurrence": [
+      0.79,
+      2.38,
+      6.35
+    ],
+    "markov1": [
+      0.79,
+      5.56,
+      12.7
+    ],
+    "markov2_backoff": [
+      4.76,
+      6.35,
+      11.9
+    ],
+    "lstm": [
+      0.0,
+      1.59,
+      5.56
+    ]
+  },
+  "results": {
+    "artifacts_primary_reflect": {
+      "all_seed_level_hit_counts_equal_handover": true,
+      "all_mean_accuracies_equal_handover": true
+    },
+    "artifacts_sensitivity_clamp": {
+      "all_seed_level_hit_counts_equal_handover": false,
+      "all_mean_accuracies_equal_handover": false
+    }
+  }
+}

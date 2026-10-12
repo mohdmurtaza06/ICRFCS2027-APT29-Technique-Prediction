@@ -1,0 +1,55 @@
+{
+  "audit_type": "public-source ordered sequence reconstruction consistency check",
+  "checked_at": "2026-10-12",
+  "repository": "https://github.com/mitre-attack/joystick/tree/8bee0d3128abc08c4e00c60b01c1608e162bb9ce/data/evaluations/apt29",
+  "sorting_rule": "Flatten Techniques[].Steps[]; parse SubStep into numeric major step, branch letter, and numeric suborder; sort lexicographically by (major step, branch letter, numeric suborder).",
+  "comparison_signature": [
+    "SubStep",
+    "TechniqueId"
+  ],
+  "result": "PASS",
+  "all_five_sequences_identical": true,
+  "each_sequence_instances": 140,
+  "each_unique_substep_labels": 140,
+  "each_unique_technique_ids": 58,
+  "vendors": [
+    {
+      "file": "McAfee.1.APT29.1_Results.json",
+      "sequence_instances": 140,
+      "unique_substeps": 140,
+      "unique_technique_ids": 58,
+      "matches_reference": true
+    },
+    {
+      "file": "Microsoft.1.APT29.1_Results.json",
+      "sequence_instances": 140,
+      "unique_substeps": 140,
+      "unique_technique_ids": 58,
+      "matches_reference": true
+    },
+    {
+      "file": "FireEye.1.APT29.1_Results.json",
+      "sequence_instances": 140,
+      "unique_substeps": 140,
+      "unique_technique_ids": 58,
+      "matches_reference": true
+    },
+    {
+      "file": "CrowdStrike.1.APT29.1_Results.json",
+      "sequence_instances": 140,
+      "unique_substeps": 140,
+      "unique_technique_ids": 58,
+      "matches_reference": true
+    },
+    {
+      "file": "Bitdefender.1.APT29.1_Results.json",
+      "sequence_instances": 140,
+      "unique_substeps": 140,
+      "unique_technique_ids": 58,
+      "matches_reference": true
+    }
+  ],
+  "interpretation": "This supports consistency of the ordered (SubStep, TechniqueId) reconstruction across five public vendor result files. These files represent the same MITRE-designed APT29 emulation flow, not five independent campaigns. The check does not validate model forecasts, the clustering ranking policy, synthetic data counts, or reported top-k scores.",
+  "source_revision_commit": "8bee0d3128abc08c4e00c60b01c1608e162bb9ce",
+  "immutable_revision_check": "See audit/pinned_source_revision_audit.json for per-file Git blob SHA-1 IDs fetched at this commit. Git blob SHA-1 IDs are not SHA-256 raw-file hashes."
+}

@@ -1,0 +1,33 @@
+ICRFCS2027_TTP_Paper_Source.pdf preflight (2026-10-12)
+Title:           Next-Technique Prediction in an APT29 Evaluation Sequence: A Pilot Benchmark
+Author:          
+Pages:           5
+Encrypted:       no
+Page size:       612 x 792 pts (letter)
+File size:       200591 bytes
+
+Embedded fonts:
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+JSOKPY+NimbusRomNo9L-Regu            Type 1            Custom           yes yes yes    106  0
+LREKMX+NimbusRomNo9L-MediItal        Type 1            Custom           yes yes yes    108  0
+ZPRXNI+NimbusRomNo9L-Medi            Type 1            Custom           yes yes yes    109  0
+PXFSNJ+CMMI9                         Type 1            Builtin          yes yes yes    110  0
+RUJPMZ+CMSY7                         Type 1            Builtin          yes yes yes    111  0
+JIIPIU+CMMI10                        Type 1            Builtin          yes yes yes    112  0
+QAXETE+NimbusRomNo9L-ReguItal        Type 1            Custom           yes yes yes    113  0
+AXBULB+CMSY10                        Type 1            Builtin          yes yes yes    136  0
+FUMQLK+CMR10                         Type 1            Builtin          yes yes yes    137  0
+WYNBIV+CMR7                          Type 1            Builtin          yes yes yes    138  0
+MQIPAO+CMMI7                         Type 1            Builtin          yes yes yes    139  0
+YQJSDJ+CMEX10                        Type 1            Builtin          yes yes yes    141  0
+BSTKNX+MSBM10                        Type 1            Builtin          yes yes yes    142  0
+ROBBRM+NimbusMonL-Regu               Type 1            Custom           yes yes yes    143  0
+NVXPEH+CMMI8                         Type 1            Builtin          yes yes yes    155  0
+FFHPFP+CMSY8                         Type 1            Builtin          yes yes yes    156  0
+
+No fatal/undefined-reference messages in final latex log:
+PASS
+
+Manuscript identity scan:
+PASS

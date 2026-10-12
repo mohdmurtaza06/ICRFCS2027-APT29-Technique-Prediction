@@ -1,0 +1,625 @@
+{
+  "status": "new_corrected_clean_room_experiment",
+  "not_reproduction_of_lost_original": true,
+  "date_utc": "2026-10-12T18:08:13.188004+00:00",
+  "python_and_package_versions": {
+    "python": "3.13.15",
+    "numpy": "2.5.4",
+    "torch": "2.14.1",
+    "pandas": "not-installed",
+    "scikit-learn": "not-installed"
+  },
+  "script_hashes": {
+    "run_benchmark.py": "b653d07e7c5bdd6fb581fed1b69af2693bab56019bb79d9b493c66d0bb6a0364",
+    "load_attack_catalogue.py": "86ed7e0015be450737014749615fc5d1e74a6e81859aed1c359e1238a29e6813",
+    "reconstruct_apt29_sequence.py": "ba392cfeb668980f65a9f23d08320d8e0457912f03ff29e0546b65375299d63e"
+  },
+  "configuration": {
+    "seeds": [
+      20261011,
+      20261012,
+      20261013
+    ],
+    "synthetic_sequences_per_seed": 500,
+    "synthetic_length_bounds": [
+      20,
+      140
+    ],
+    "lstm_epochs": 35,
+    "torch_cpu_intraop_threads": 1,
+    "lstm_window_size": 6,
+    "context_positions": 98,
+    "test_positions": 42,
+    "tactic_walk_order": [
+      "Reconnaissance",
+      "Resource Development",
+      "Initial Access",
+      "Execution",
+      "Persistence",
+      "Privilege Escalation",
+      "Defense Evasion",
+      "Credential Access",
+      "Discovery",
+      "Lateral Movement",
+      "Collection",
+      "Command and Control",
+      "Exfiltration",
+      "Impact"
+    ],
+    "tactic_walk_boundary": "reflect",
+    "tactic_sampling_policy": "walk",
+    "synthetic_technique_status_policy": "all_catalogue_statuses_retained"
+  },
+  "source_hashes": [
+    {
+      "file": "McAfee.1.APT29.1_Results.json",
+      "sha256": "255e2af62bd9defd9bc82bf8bbb81cd89963246170a1554036edb7829a74e71f"
+    },
+    {
+      "file": "Microsoft.1.APT29.1_Results.json",
+      "sha256": "32a5e1f2bd2d79e850b880776ca295241345c2e7833fb3676f631334e6d22795"
+    },
+    {
+      "file": "FireEye.1.APT29.1_Results.json",
+      "sha256": "53d79e459f59af08cd5a7fd683780ef0935d26fbc0e46c03d32aa9b9b2ed0dc1"
+    },
+    {
+      "file": "CrowdStrike.1.APT29.1_Results.json",
+      "sha256": "88adcf9b1dd68d5062e118268e8143de03140e2506724f261f9c15f259ce33d7"
+    },
+    {
+      "file": "Bitdefender.1.APT29.1_Results.json",
+      "sha256": "c461a0a0518860713433cc7ddbdefc924c6275566e9543db55724e9528c1bf9a"
+    },
+    {
+      "file": "enterprise-attack-18.1.json",
+      "sha256": "f857d8f78f2f0c0b7db321a711a39fba98546c1e3076a657684850c83d0962fb"
+    }
+  ],
+  "vendor_source": {
+    "repository_revision_url": "https://github.com/mitre-attack/joystick/tree/8bee0d3128abc08c4e00c60b01c1608e162bb9ce/data/evaluations/apt29",
+    "commit": "8bee0d3128abc08c4e00c60b01c1608e162bb9ce"
+  },
+  "catalogue": {
+    "catalogue": "MITRE ATT&CK Enterprise",
+    "version": "18.1",
+    "source_revision_tag": "v18.1",
+    "source_url": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/v18.1/enterprise-attack/enterprise-attack-18.1.json",
+    "local_file": "data\\enterprise-attack-18.1.json",
+    "sha256": "f857d8f78f2f0c0b7db321a711a39fba98546c1e3076a657684850c83d0962fb",
+    "technique_ids_in_candidate_universe": 835,
+    "technique_object_status_counts": {
+      "active": 691,
+      "deprecated": 12,
+      "revoked": 132
+    },
+    "tactic_labels_found": [
+      "Collection",
+      "Command and Control",
+      "Credential Access",
+      "Defense Evasion",
+      "Discovery",
+      "Execution",
+      "Exfiltration",
+      "Impact",
+      "Initial Access",
+      "Lateral Movement",
+      "Persistence",
+      "Privilege Escalation",
+      "Reconnaissance",
+      "Resource Development"
+    ],
+    "vocabulary_policy": "Candidate vocabulary and tactic mapping derive only from the pinned ATT&CK catalogue, not the APT29 evaluation sequence. Deprecated/revoked technique objects are retained when still present in the pinned catalogue for historical-label coverage."
+  },
+  "sequence_length": 140,
+  "distinct_technique_ids_observed": 58,
+  "candidate_vocabulary_size": 835,
+  "observed_label_coverage": "100% required; run aborts if an observed label is absent from the pinned catalogue",
+  "context_positions": 98,
+  "test_positions": 42,
+  "evaluation": "teacher-forced next-step; at each position only the initial 98 positions and earlier held-out observations are inputs",
+  "count_baseline_protocol": "synthetic counts plus current permitted prefix for all count-based baselines, including frequency",
+  "lstm_training_protocol": "synthetic sequences plus first 98 observed positions; no held-out suffix examples added to training; inference conditions on the allowed rolling prefix window",
+  "synthetic_generator": "heuristic ordered tactic walk through ATT&CK Enterprise tactics; not validated as realistic attack simulator",
+  "random_walk_probabilities": {
+    "advance_one": 0.55,
+    "stay": 0.25,
+    "back_one_or_two": 0.13,
+    "advance_two_or_three": 0.07
+  },
+  "synthetic_status_policy_note": "Status filtering affects synthetic generation only; the ranking candidate universe remains all retained IDs from the pinned independent catalogue.",
+  "ranking_rule": "descending score, then ascending technique ID for deterministic ties; candidate set de-duplicated",
+  "cooccurrence_note": "association ranking from +/-5-position counts; not hierarchical clustering",
+  "statistical_note": "seed summary describes sensitivity on the same 42 dependent positions; seeds do not create independent campaigns",
+  "runs": [
+    {
+      "seed": 20261011,
+      "synthetic_sequences": 500,
+      "synthetic_total_instances": 38968,
+      "synthetic_min_length": 20,
+      "synthetic_max_length": 140,
+      "synthetic_mean_length": 77.936,
+      "training_examples": 36060,
+      "lstm_epochs": 35,
+      "context_size": 98,
+      "test_positions": 42,
+      "synthetic_instance_status_counts": {
+        "active": 33888,
+        "deprecated": 426,
+        "revoked": 4654
+      },
+      "synthetic_unique_techniques_sampled": 830,
+      "synthetic_top_10_technique_instances": [
+        {
+          "technique_id": "T1022",
+          "count": 602,
+          "fraction": 0.015448573188257032
+        },
+        {
+          "technique_id": "T1567",
+          "count": 576,
+          "fraction": 0.01478135906384726
+        },
+        {
+          "technique_id": "T1567.003",
+          "count": 576,
+          "fraction": 0.01478135906384726
+        },
+        {
+          "technique_id": "T1048.003",
+          "count": 565,
+          "fraction": 0.01449907616505851
+        },
+        {
+          "technique_id": "T1002",
+          "count": 558,
+          "fraction": 0.014319441593102033
+        },
+        {
+          "technique_id": "T1048",
+          "count": 555,
+          "fraction": 0.014242455347977828
+        },
+        {
+          "technique_id": "T1011",
+          "count": 554,
+          "fraction": 0.01421679326626976
+        },
+        {
+          "technique_id": "T1011.001",
+          "count": 554,
+          "fraction": 0.01421679326626976
+        },
+        {
+          "technique_id": "T1567.001",
+          "count": 553,
+          "fraction": 0.014191131184561692
+        },
+        {
+          "technique_id": "T1052.001",
+          "count": 547,
+          "fraction": 0.014037158694313283
+        }
+      ],
+      "synthetic_tactic_membership_counts_nonexclusive": {
+        "Collection": 3315,
+        "Command and Control": 5117,
+        "Credential Access": 1947,
+        "Defense Evasion": 2781,
+        "Discovery": 1289,
+        "Execution": 1281,
+        "Exfiltration": 11521,
+        "Impact": 8727,
+        "Initial Access": 1110,
+        "Lateral Movement": 1826,
+        "Persistence": 2638,
+        "Privilege Escalation": 2046,
+        "Reconnaissance": 790,
+        "Resource Development": 887
+      },
+      "metrics": {
+        "frequency_top1": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "frequency_top3": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "frequency_top5": {
+          "hits": 1,
+          "n": 42,
+          "accuracy": 0.023809523809523808
+        },
+        "cooccurrence_top1": {
+          "hits": 1,
+          "n": 42,
+          "accuracy": 0.023809523809523808
+        },
+        "cooccurrence_top3": {
+          "hits": 2,
+          "n": 42,
+          "accuracy": 0.047619047619047616
+        },
+        "cooccurrence_top5": {
+          "hits": 4,
+          "n": 42,
+          "accuracy": 0.09523809523809523
+        },
+        "markov1_top1": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "markov1_top3": {
+          "hits": 3,
+          "n": 42,
+          "accuracy": 0.07142857142857142
+        },
+        "markov1_top5": {
+          "hits": 5,
+          "n": 42,
+          "accuracy": 0.11904761904761904
+        },
+        "markov2_backoff_top1": {
+          "hits": 2,
+          "n": 42,
+          "accuracy": 0.047619047619047616
+        },
+        "markov2_backoff_top3": {
+          "hits": 3,
+          "n": 42,
+          "accuracy": 0.07142857142857142
+        },
+        "markov2_backoff_top5": {
+          "hits": 5,
+          "n": 42,
+          "accuracy": 0.11904761904761904
+        },
+        "lstm_top1": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "lstm_top3": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "lstm_top5": {
+          "hits": 2,
+          "n": 42,
+          "accuracy": 0.047619047619047616
+        }
+      }
+    },
+    {
+      "seed": 20261012,
+      "synthetic_sequences": 500,
+      "synthetic_total_instances": 39742,
+      "synthetic_min_length": 20,
+      "synthetic_max_length": 140,
+      "synthetic_mean_length": 79.484,
+      "training_examples": 36834,
+      "lstm_epochs": 35,
+      "context_size": 98,
+      "test_positions": 42,
+      "synthetic_instance_status_counts": {
+        "active": 34634,
+        "deprecated": 375,
+        "revoked": 4733
+      },
+      "synthetic_unique_techniques_sampled": 832,
+      "synthetic_top_10_technique_instances": [
+        {
+          "technique_id": "T1029",
+          "count": 614,
+          "fraction": 0.015449650244074279
+        },
+        {
+          "technique_id": "T1048.003",
+          "count": 611,
+          "fraction": 0.01537416335363092
+        },
+        {
+          "technique_id": "T1030",
+          "count": 610,
+          "fraction": 0.015349001056816466
+        },
+        {
+          "technique_id": "T1052",
+          "count": 587,
+          "fraction": 0.014770268230084042
+        },
+        {
+          "technique_id": "T1020.001",
+          "count": 573,
+          "fraction": 0.014417996074681697
+        },
+        {
+          "technique_id": "T1048",
+          "count": 569,
+          "fraction": 0.014317346887423884
+        },
+        {
+          "technique_id": "T1020",
+          "count": 567,
+          "fraction": 0.014267022293794977
+        },
+        {
+          "technique_id": "T1567.004",
+          "count": 564,
+          "fraction": 0.014191535403351618
+        },
+        {
+          "technique_id": "T1011.001",
+          "count": 563,
+          "fraction": 0.014166373106537164
+        },
+        {
+          "technique_id": "T1048.001",
+          "count": 562,
+          "fraction": 0.014141210809722712
+        }
+      ],
+      "synthetic_tactic_membership_counts_nonexclusive": {
+        "Collection": 3510,
+        "Command and Control": 5175,
+        "Credential Access": 2041,
+        "Defense Evasion": 2916,
+        "Discovery": 1330,
+        "Execution": 1191,
+        "Exfiltration": 11813,
+        "Impact": 8760,
+        "Initial Access": 1226,
+        "Lateral Movement": 1903,
+        "Persistence": 2656,
+        "Privilege Escalation": 2046,
+        "Reconnaissance": 810,
+        "Resource Development": 874
+      },
+      "metrics": {
+        "frequency_top1": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "frequency_top3": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "frequency_top5": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "cooccurrence_top1": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "cooccurrence_top3": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "cooccurrence_top5": {
+          "hits": 2,
+          "n": 42,
+          "accuracy": 0.047619047619047616
+        },
+        "markov1_top1": {
+          "hits": 1,
+          "n": 42,
+          "accuracy": 0.023809523809523808
+        },
+        "markov1_top3": {
+          "hits": 2,
+          "n": 42,
+          "accuracy": 0.047619047619047616
+        },
+        "markov1_top5": {
+          "hits": 5,
+          "n": 42,
+          "accuracy": 0.11904761904761904
+        },
+        "markov2_backoff_top1": {
+          "hits": 2,
+          "n": 42,
+          "accuracy": 0.047619047619047616
+        },
+        "markov2_backoff_top3": {
+          "hits": 2,
+          "n": 42,
+          "accuracy": 0.047619047619047616
+        },
+        "markov2_backoff_top5": {
+          "hits": 4,
+          "n": 42,
+          "accuracy": 0.09523809523809523
+        },
+        "lstm_top1": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "lstm_top3": {
+          "hits": 2,
+          "n": 42,
+          "accuracy": 0.047619047619047616
+        },
+        "lstm_top5": {
+          "hits": 2,
+          "n": 42,
+          "accuracy": 0.047619047619047616
+        }
+      }
+    },
+    {
+      "seed": 20261013,
+      "synthetic_sequences": 500,
+      "synthetic_total_instances": 40769,
+      "synthetic_min_length": 20,
+      "synthetic_max_length": 140,
+      "synthetic_mean_length": 81.538,
+      "training_examples": 37861,
+      "lstm_epochs": 35,
+      "context_size": 98,
+      "test_positions": 42,
+      "synthetic_instance_status_counts": {
+        "active": 35456,
+        "deprecated": 435,
+        "revoked": 4878
+      },
+      "synthetic_unique_techniques_sampled": 834,
+      "synthetic_top_10_technique_instances": [
+        {
+          "technique_id": "T1537",
+          "count": 672,
+          "fraction": 0.016483112168559445
+        },
+        {
+          "technique_id": "T1041",
+          "count": 602,
+          "fraction": 0.014766121317667837
+        },
+        {
+          "technique_id": "T1002",
+          "count": 601,
+          "fraction": 0.014741592876940813
+        },
+        {
+          "technique_id": "T1030",
+          "count": 600,
+          "fraction": 0.01471706443621379
+        },
+        {
+          "technique_id": "T1020.001",
+          "count": 598,
+          "fraction": 0.014668007554759744
+        },
+        {
+          "technique_id": "T1048.002",
+          "count": 597,
+          "fraction": 0.014643479114032722
+        },
+        {
+          "technique_id": "T1011.001",
+          "count": 595,
+          "fraction": 0.014594422232578674
+        },
+        {
+          "technique_id": "T1052",
+          "count": 592,
+          "fraction": 0.014520836910397607
+        },
+        {
+          "technique_id": "T1567.001",
+          "count": 582,
+          "fraction": 0.014275552503127377
+        },
+        {
+          "technique_id": "T1020",
+          "count": 580,
+          "fraction": 0.01422649562167333
+        }
+      ],
+      "synthetic_tactic_membership_counts_nonexclusive": {
+        "Collection": 3469,
+        "Command and Control": 5426,
+        "Credential Access": 1997,
+        "Defense Evasion": 2881,
+        "Discovery": 1370,
+        "Execution": 1269,
+        "Exfiltration": 12217,
+        "Impact": 9059,
+        "Initial Access": 1193,
+        "Lateral Movement": 1920,
+        "Persistence": 2669,
+        "Privilege Escalation": 1994,
+        "Reconnaissance": 801,
+        "Resource Development": 937
+      },
+      "metrics": {
+        "frequency_top1": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "frequency_top3": {
+          "hits": 1,
+          "n": 42,
+          "accuracy": 0.023809523809523808
+        },
+        "frequency_top5": {
+          "hits": 1,
+          "n": 42,
+          "accuracy": 0.023809523809523808
+        },
+        "cooccurrence_top1": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "cooccurrence_top3": {
+          "hits": 1,
+          "n": 42,
+          "accuracy": 0.023809523809523808
+        },
+        "cooccurrence_top5": {
+          "hits": 2,
+          "n": 42,
+          "accuracy": 0.047619047619047616
+        },
+        "markov1_top1": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "markov1_top3": {
+          "hits": 2,
+          "n": 42,
+          "accuracy": 0.047619047619047616
+        },
+        "markov1_top5": {
+          "hits": 6,
+          "n": 42,
+          "accuracy": 0.14285714285714285
+        },
+        "markov2_backoff_top1": {
+          "hits": 2,
+          "n": 42,
+          "accuracy": 0.047619047619047616
+        },
+        "markov2_backoff_top3": {
+          "hits": 3,
+          "n": 42,
+          "accuracy": 0.07142857142857142
+        },
+        "markov2_backoff_top5": {
+          "hits": 6,
+          "n": 42,
+          "accuracy": 0.14285714285714285
+        },
+        "lstm_top1": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "lstm_top3": {
+          "hits": 0,
+          "n": 42,
+          "accuracy": 0.0
+        },
+        "lstm_top5": {
+          "hits": 3,
+          "n": 42,
+          "accuracy": 0.07142857142857142
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "catalogue": "MITRE ATT&CK Enterprise",
+  "version": "18.1",
+  "source_revision_tag": "v18.1",
+  "source_url": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/v18.1/enterprise-attack/enterprise-attack-18.1.json",
+  "local_file": "data/enterprise-attack-18.1.json",
+  "sha256": "f857d8f78f2f0c0b7db321a711a39fba98546c1e3076a657684850c83d0962fb",
+  "technique_ids_in_candidate_universe": 835,
+  "technique_object_status_counts": {
+    "active": 691,
+    "deprecated": 12,
+    "revoked": 132
+  },
+  "tactic_labels_found": [
+    "Collection",
+    "Command and Control",
+    "Credential Access",
+    "Defense Evasion",
+    "Discovery",
+    "Execution",
+    "Exfiltration",
+    "Impact",
+    "Initial Access",
+    "Lateral Movement",
+    "Persistence",
+    "Privilege Escalation",
+    "Reconnaissance",
+    "Resource Development"
+  ],
+  "vocabulary_policy": "Candidate vocabulary and tactic mapping derive only from the pinned ATT&CK catalogue, not the APT29 evaluation sequence. Deprecated/revoked technique objects are retained when still present in the pinned catalogue for historical-label coverage."
+}

@@ -1,0 +1,156 @@
+{
+  "sequence_length": 140,
+  "distinct_observed_labels": 58,
+  "catalogue_universe_size": 835,
+  "observed_labels_missing_from_catalogue": [],
+  "heldout_labels_not_seen_in_context": [
+    "T1047",
+    "T1055",
+    "T1084",
+    "T1085",
+    "T1097",
+    "T1102",
+    "T1114",
+    "T1136"
+  ],
+  "heldout_positions_whose_label_is_unseen_in_context": 11,
+  "seeds": {
+    "20261011": {
+      "frequency": [
+        0,
+        0,
+        0
+      ],
+      "cooccurrence": [
+        1,
+        2,
+        5
+      ],
+      "markov1": [
+        1,
+        4,
+        6
+      ],
+      "markov2_backoff": [
+        3,
+        5,
+        6
+      ],
+      "lstm": [
+        0,
+        0,
+        0
+      ]
+    },
+    "20261012": {
+      "frequency": [
+        0,
+        0,
+        0
+      ],
+      "cooccurrence": [
+        1,
+        3,
+        5
+      ],
+      "markov1": [
+        1,
+        3,
+        5
+      ],
+      "markov2_backoff": [
+        2,
+        3,
+        4
+      ],
+      "lstm": [
+        0,
+        0,
+        0
+      ]
+    },
+    "20261013": {
+      "frequency": [
+        0,
+        0,
+        0
+      ],
+      "cooccurrence": [
+        2,
+        3,
+        5
+      ],
+      "markov1": [
+        0,
+        3,
+        4
+      ],
+      "markov2_backoff": [
+        2,
+        3,
+        4
+      ],
+      "lstm": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "mean_accuracy_pct": {
+    "frequency": {
+      "top1": 0.0,
+      "top3": 0.0,
+      "top5": 0.0
+    },
+    "cooccurrence": {
+      "top1": 3.17,
+      "top3": 6.35,
+      "top5": 11.9
+    },
+    "markov1": {
+      "top1": 1.59,
+      "top3": 7.94,
+      "top5": 11.9
+    },
+    "markov2_backoff": {
+      "top1": 5.56,
+      "top3": 8.73,
+      "top5": 11.11
+    },
+    "lstm": {
+      "top1": 0.0,
+      "top3": 0.0,
+      "top5": 0.0
+    }
+  },
+  "sample_sd_accuracy_pct": {
+    "frequency": {
+      "top1": 0.0,
+      "top3": 0.0,
+      "top5": 0.0
+    },
+    "cooccurrence": {
+      "top1": 1.37,
+      "top3": 1.37,
+      "top5": 0.0
+    },
+    "markov1": {
+      "top1": 1.37,
+      "top3": 1.37,
+      "top5": 2.38
+    },
+    "markov2_backoff": {
+      "top1": 1.37,
+      "top3": 2.75,
+      "top5": 2.75
+    },
+    "lstm": {
+      "top1": 0.0,
+      "top3": 0.0,
+      "top5": 0.0
+    }
+  },
+  "failures": [],
+  "all_checks_passed": true
+}

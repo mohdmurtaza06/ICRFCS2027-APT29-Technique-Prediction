@@ -1,0 +1,11 @@
+﻿{
+  "python": "3.13.15",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "executable": "C:\\Users\\murta\\Desktop\\ICRFCS2027_FINAL_COMPLETION_PACKAGE_2026-10-12\\ICRFCS2027_Final_Rebuild\\.venv\\Scripts\\python.exe",
+  "numpy": "2.5.4",
+  "torch": "2.14.1",
+  "pandas": "not-installed",
+  "scikit-learn": "not-installed",
+  "torch_cuda_available": false,
+  "torch_num_threads": 4
+}

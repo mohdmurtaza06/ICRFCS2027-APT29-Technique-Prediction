@@ -1,0 +1,8 @@
+ICRFCS 2027 PRE-SUBMISSION AUDIT - 12 October 2026
+
+VERDICT: EMPIRICAL WORK VERIFIED; SUBMISSION NOT FULLY CLEARED (open items below).
+
+Verified: authentic data (hash/blob checked), 835-ID catalogue with all 58 observed labels covered, 98/42 protocol, per-row ranking validity, independent recomputation of all hit counts (both conditions, three seeds), determinism, 31 passing tests, manuscript rebuilt (5 pages, anonymous, no identifying strings).
+Key finding: the shipped script clamped the tactic walk, whereas the documented design (and the earlier artifacts, which the primary condition reproduces exactly) reflects. Method ordering depends on this choice. Reflect is primary; clamp is reported as sensitivity. The paper says so.
+Open: reference recheck (Erfan volume, Pappu landing page), conference page/format/blind-review rules, similarity report, publication/payment arrangements, optional Windows cross-platform rerun, inspection of the original artifacts_reflecting_walk directory (not supplied).
+Details: audit/FINAL_RELEASE_AUDIT.md, docs/SUBMISSION_GATE.md.

@@ -1,0 +1,68 @@
+REFERENCE VERIFICATION SUMMARY
+Checked: 11 October 2026
+Purpose: verify existence and basic metadata of references cited in the revised TTP manuscript. This is a bibliographic check, not a full reading or endorsement of every cited claim.
+
+[1] Roy et al., “SoK: The MITRE ATT&CK Framework in Research and Practice,” arXiv:2304.07411, 2023.
+Status: VERIFIED. arXiv record confirms title and authors. https://arxiv.org/abs/2304.07411
+
+[2] MITRE, “Enterprise Tactics,” MITRE ATT&CK.
+Status: VERIFIED. Official MITRE page explains tactics as the “why” or adversary goal. https://attack.mitre.org/tactics/
+
+[3] Al-Shaer, Spring, and Christou, “Learning the Associations of MITRE ATT&CK Adversarial Techniques,” IEEE CNS 2020, pp. 1–9.
+Status: VERIFIED. IEEE Xplore and arXiv confirm title/authors; DOI is 10.1109/CNS48642.2020.9162207. https://ieeexplore.ieee.org/abstract/document/9162207
+
+[4] Erfan, Ryan, Williams, and Rahman, “Investigating co-occurrences of MITRE ATT&CK techniques,” Computers & Security, Art. no. 105042, 2026.
+Status: PUBLISHER RECORD CONFIRMED; CITATION NORMALIZED TO AVOID A FUTURE ISSUE DATE. The ScienceDirect publisher record confirms the article title, journal, article number 105042, and DOI 10.1016/j.cose.2026.105042; the web record assigns it to Volume 170, November 2026, which is future-dated as of this 12 October 2026 audit. The manuscript now uses a neutral 2026 article-number citation without the not-yet-arrived issue month. This paper concerns technique co-occurrence, not the exact next-step prediction task. https://www.sciencedirect.com/science/article/pii/S016740482600218X
+
+[5] Jiang et al., “MITRE ATT&CK Applications in Cybersecurity and The Way Forward,” arXiv:2502.10825, 2025.
+Status: VERIFIED. arXiv confirms metadata and describes the review of 417 peer-reviewed publications. https://arxiv.org/abs/2502.10825
+
+[6] Lupinacci et al., “A Graph-Based Approach for Mapping Kernel-Level Telemetry to MITRE ATT&CK,” arXiv:2609.12841, 2026.
+Status: VERIFIED. arXiv confirms title/authors and September 2026 submission. This work is related to telemetry mapping, not a direct next-technique forecasting benchmark. https://arxiv.org/abs/2609.12841
+
+[7] Fayyazi, Taghdimi, and Yang, “Advancing TTP Analysis: Harnessing the Power of Large Language Models with Retrieval Augmented Generation,” arXiv:2401.00280, 2024.
+Status: VERIFIED. arXiv confirms title/authors. This work concerns TTP understanding using SFT/RAG, not the same prediction task. https://arxiv.org/abs/2401.00280
+
+[8] Haque et al., “Beyond Single Reports: Evaluating Automated ATT&CK Technique Extraction in Multi-Report Campaign Settings,” arXiv:2604.07470, 2026.
+Status: VERIFIED. arXiv confirms title/authors and April 2026 submission. This is a multi-report extraction study, not a sequence prediction study. https://arxiv.org/abs/2604.07470
+
+[9] Ghafir et al., “Hidden Markov Models and Alert Correlations for the Prediction of Advanced Persistent Threats,” IEEE Access, vol. 7, pp. 99508–99520, 2019.
+Status: VERIFIED. IEEE Xplore confirms article and DOI 10.1109/ACCESS.2019.2930200. https://ieeexplore.ieee.org/document/8767917/
+
+[10] Pappu, “Smoothed Markov Chains for MITRE ATT&CK Prediction: Addressing Data Scarcity in Cyber Kill Chains,” EIECC 2025, DOI 10.1109/EIECC67963.2025.11409611.
+Status: PARTIALLY VERIFIED. The author's publicly accessible ResearchGate full-text copy confirms title, author, conference name (2025 5th International Conference on Electronic Information Engineering and Computer Communication), and DOI 10.1109/EIECC67963.2025.11409611. An authoritative IEEE Xplore landing page was not retrievable by the available web checks. The manuscript's cited page range 761-764 still needs direct confirmation against the official proceedings metadata before final submission. https://www.researchgate.net/publication/401633108_Smoothed_Markov_Chains_for_MITRE_ATTCK_Prediction_Addressing_Data_Scarcity_in_Cyber_Kill_Chains
+
+[11] Raj et al., “MITRE ATT&CK-based Attack Chain Prediction Using Hybrid LSTM-Markov Models for Cyber Risk Assessment,” SECRYPT 2026, pp. 1039–1050.
+Status: VERIFIED. SciTePress publisher page confirms title, authors, proceedings, pages and DOI 10.5220/0015075400004103. Its published description notes that 4,849 chains span 33 campaigns and the campaign-level severity analysis has 33 independent labels. https://www.scitepress.org/Link.aspx?doi=10.5220%2F0015075400004103
+
+[12] Takahashi et al., “APTGen: An Approach towards Generating Practical Dataset Labelled with Targeted Attack Sequences,” USENIX CSET 2020.
+Status: VERIFIED. Official USENIX page confirms title, authors, and publication details. https://www.usenix.org/conference/cset20/presentation/takahashi
+
+[13] MITRE Engenuity, “ATT&CK Evaluations: APT29,” 2019.
+Status: VERIFIED as an official evaluation source. The reconstruction additionally references the structured public JSON described in [15]. https://attackevals.mitre-engenuity.org/enterprise/APT29/
+
+[14] Shen et al., “Decoding the MITRE Engenuity ATT&CK Enterprise Evaluation: An Analysis of EDR Performance in Real-World Environments,” ACM ASIA CCS 2024, pp. 96–111.
+Status: VERIFIED. ACM publisher record confirms title, authors, conference, pages and DOI 10.1145/3634737.3645012. https://doi.org/10.1145/3634737.3645012
+
+[15] MITRE, “ATT&CK Evaluations structured result data, APT29,” mitre-attack/joystick public repository.
+Status: VERIFIED. Public GitHub repository contains the named vendor result JSON files. Five files were independently inspected in this work; each reconstructs to 140 unique substeps and an identical ordered (SubStep, TechniqueId) sequence. https://github.com/mitre-attack/joystick/tree/8bee0d3128abc08c4e00c60b01c1608e162bb9ce/data/evaluations/apt29
+
+REMAINING CAUTION
+Metadata checks cannot guarantee that every use of a reference in the manuscript is appropriate. All cited claims should be checked against the source paper's full text. The Pappu publisher metadata and exact page range remain the only item above flagged as partially verified in this audit.
+
+
+CURRENT RECHECK (12 October 2026)
+- The official MITRE ATT&CK STIX repository index lists Enterprise v18.1 (13 November 2025) and Enterprise v19.2 (05 August 2026).
+- MITRE's April 2026 v19 update states that Enterprise Defense Evasion was split into Stealth and Defense Impairment.
+- Pappu ref. [10] remains the only item whose publisher landing-page metadata was not verified in this release; an author-maintained public repository contains a matching BibTeX entry, but that is not a substitute for the authoritative publisher record.
+
+Sources: https://github.com/mitre-attack/attack-stix-data/blob/master/index.md ; https://attack.mitre.org/resources/updates/updates-april-2026/ ; https://www.sciencedirect.com/science/article/pii/S016740482600218X
+
+
+CURRENT RECHECK (12 October 2026, completion pass)
+- Erfan et al.: publisher page now re-opened and the citation in the manuscript was made neutral: journal title, article number 105042, year 2026, DOI; the future November issue assignment is not stated.
+- Pappu: author-uploaded full text was opened on ResearchGate and independently exposes title, author, December 2025 date, the EIECC conference name, and DOI. Because IEEE Xplore metadata was not retrieved, this remains partial verification; page range 761-764 is still not independently confirmed against the official proceedings.
+- The conference's submission requirements were read from the user-provided screenshot of https://icrfcs.com/submission.html; official home, call-for-papers, publication, and registration pages were also checked. See audit/conference_submission_requirements_2026-10-12.md.
+
+MANUSCRIPT ACTION (12 October 2026 completion pass)
+- The manuscript citation for Pappu [10] omits the unverified page range rather than presenting 761-764 as established metadata. The reference remains partially verified because an authoritative IEEE proceedings record could not be retrieved in this check.

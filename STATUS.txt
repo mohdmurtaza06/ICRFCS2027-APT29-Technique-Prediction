@@ -1,0 +1,31 @@
+STATUS (2026-10-12 completion pass): EMPIRICAL CODE/ARTIFACT AUDIT PASSED; SUBMISSION NOT CLEARED.
+
+Completed and verified in this working package
+- 37 automated tests pass: `python -m unittest discover -s tests -q`; `python -m compileall -q scripts tests` passes.
+- Authentic pinned inputs are bundled in data/: five MITRE APT29 vendor JSONs at Joystick commit 8bee0d3128abc08c4e00c60b01c1608e162bb9ce and the ATT&CK Enterprise v18.1 STIX bundle (SHA-256 f857d8f78f2f0c0b7db321a711a39fba98546c1e3076a657684850c83d0962fb).
+- Cross-vendor reconstruction yields the same ordered 140-position sequence from all five vendor files; they are multiple views of one emulation, not five independent campaigns.
+- Independent candidate vocabulary: 835 ATT&CK technique IDs (691 active, 12 deprecated, 132 revoked). All 58 observed labels are covered without adding target-derived IDs.
+- Chronological protocol: 98 initial context positions and 42 sequentially teacher-forced target positions.
+- Four complete benchmark conditions, all run under the same controlled runtime and source-script hashes, using three seeds (20261011/12/13), 500 synthetic sequences per seed, length 20-140, 35 LSTM epochs, six-step LSTM window, one CPU intra-op thread:
+  * artifacts_primary_reflect/: reflecting tactic walk, all catalogue statuses in synthetic pool
+  * artifacts_sensitivity_clamp/: clamping tactic walk, all catalogue statuses in synthetic pool
+  * artifacts_sensitivity_uniform_tactic/: independent uniform tactic selection, all catalogue statuses in synthetic pool
+  * artifacts_sensitivity_active_only/: reflecting walk, active-only synthetic pool; evaluation vocabulary still all 835 IDs
+- Each condition has prediction CSVs, synthetic corpus files, a run manifest and an independent reconciliation report. All four report `all_checks_passed: true`; `audit/sensitivity_comparison.json` reports strict comparability PASS.
+- `python scripts/summarize_conditions.py` validates matching seeds, source/script hashes, runtime, task dimensions and core model settings before calculating descriptive means/seed dispersion.
+- Corrected LaTeX manuscript recompiles to five US Letter pages, within the conference's screenshot-stated 4-6 page range. PDF author metadata is blank, author block is anonymous, and all five rendered pages were visually inspected.
+- Historical 58-label scores remain clearly labelled unverified and not reproduced. They are not used as evidence for the corrected experiment.
+
+Key empirical interpretation
+- The best mean Top-5 result in the primary reflecting condition is Markov-1 at 12.7%; Markov-2 with backoff is 11.9%. Values are descriptive only.
+- Model rankings are sensitive to generator policy. Three seeds evaluate the same 42 dependent target positions; they are not independent campaigns. The synthetic generator is a heuristic, not a validated attack simulator, and no operational or cross-campaign prediction claim is supported.
+
+External / unresolved gates
+- No similarity report was obtained; compliance with the stated 15% similarity ceiling is NOT verified.
+- A clean Windows rerun in the author's reported Python 3.14.7 / PyTorch 2.14.1 environment was not performed; cross-platform bit identity is unverified.
+- Pappu reference [10] remains partially verified: an author-uploaded public copy confirms title/author/conference/DOI, but authoritative IEEE proceedings metadata was not retrieved. The manuscript omits the unverified page range.
+- The original user-local `artifacts_reflecting_walk/` directory was not included in the uploaded ZIP and was not inspected. The reflecting condition does match the preserved handover seed-level hit counts.
+- The conference website screenshot confirms format, length, anonymization and similarity requirements, but meeting format does not assure acceptance or IEEE Xplore inclusion.
+- No manuscript has been submitted; acceptance/publication is not implied.
+
+Verdict: empirically reconciled pilot package; NOT FULLY CLEARED for submission until the external gates above are resolved.

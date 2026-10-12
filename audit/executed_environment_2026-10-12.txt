@@ -1,0 +1,16 @@
+Controlled four-condition benchmark environment, measured on 12 October 2026
+
+Python 3.13.5
+NumPy 2.3.5
+PyTorch 2.10.0+cpu
+pandas 2.2.3
+scikit-learn 1.8.0
+Linux container runtime; CPU only
+PyTorch CPU intra-op threads: 1
+
+All four comparable benchmark conditions in this release (reflecting, clamping,
+uniform-tactic sampling, active-only synthetic pool) were rerun under this exact
+runtime and source-script hash set. See audit/sensitivity_comparison.json and each
+condition's run_manifest.json. These versions differ from the author's reported
+Windows environment in audit/user_reported_environment_2026-10-11.txt; a Windows
+reproduction run remains outstanding.

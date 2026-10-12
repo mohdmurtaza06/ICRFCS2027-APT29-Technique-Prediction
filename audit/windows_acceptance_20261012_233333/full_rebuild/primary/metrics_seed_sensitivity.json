@@ -1,0 +1,302 @@
+{
+  "cooccurrence_top1": {
+    "mean_accuracy_across_seeds": 0.007936507936507936,
+    "sample_sd_across_seeds": 0.013746434980705375,
+    "hits_by_seed": {
+      "20261011": 1,
+      "20261012": 0,
+      "20261013": 0
+    },
+    "accuracy_by_seed": {
+      "20261011": 0.023809523809523808,
+      "20261012": 0.0,
+      "20261013": 0.0
+    },
+    "n_positions_per_seed": {
+      "20261011": 42,
+      "20261012": 42,
+      "20261013": 42
+    },
+    "interpretation": "seed sensitivity on the same 42 dependent positions, not independent campaign-level uncertainty"
+  },
+  "cooccurrence_top3": {
+    "mean_accuracy_across_seeds": 0.023809523809523808,
+    "sample_sd_across_seeds": 0.023809523809523808,
+    "hits_by_seed": {
+      "20261011": 2,
+      "20261012": 0,
+      "20261013": 1
+    },
+    "accuracy_by_seed": {
+      "20261011": 0.047619047619047616,
+      "20261012": 0.0,
+      "20261013": 0.023809523809523808
+    },
+    "n_positions_per_seed": {
+      "20261011": 42,
+      "20261012": 42,
+      "20261013": 42
+    },
+    "interpretation": "seed sensitivity on the same 42 dependent positions, not independent campaign-level uncertainty"
+  },
+  "cooccurrence_top5": {
+    "mean_accuracy_across_seeds": 0.06349206349206349,
+    "sample_sd_across_seeds": 0.02749286996141075,
+    "hits_by_seed": {
+      "20261011": 4,
+      "20261012": 2,
+      "20261013": 2
+    },
+    "accuracy_by_seed": {
+      "20261011": 0.09523809523809523,
+      "20261012": 0.047619047619047616,
+      "20261013": 0.047619047619047616
+    },
+    "n_positions_per_seed": {
+      "20261011": 42,
+      "20261012": 42,
+      "20261013": 42
+    },
+    "interpretation": "seed sensitivity on the same 42 dependent positions, not independent campaign-level uncertainty"
+  },
+  "frequency_top1": {
+    "mean_accuracy_across_seeds": 0.0,
+    "sample_sd_across_seeds": 0.0,
+    "hits_by_seed": {
+      "20261011": 0,
+      "20261012": 0,
+      "20261013": 0
+    },
+    "accuracy_by_seed": {
+      "20261011": 0.0,
+      "20261012": 0.0,
+      "20261013": 0.0
+    },
+    "n_positions_per_seed": {
+      "20261011": 42,
+      "20261012": 42,
+      "20261013": 42
+    },
+    "interpretation": "seed sensitivity on the same 42 dependent positions, not independent campaign-level uncertainty"
+  },
+  "frequency_top3": {
+    "mean_accuracy_across_seeds": 0.007936507936507936,
+    "sample_sd_across_seeds": 0.013746434980705375,
+    "hits_by_seed": {
+      "20261011": 0,
+      "20261012": 0,
+      "20261013": 1
+    },
+    "accuracy_by_seed": {
+      "20261011": 0.0,
+      "20261012": 0.0,
+      "20261013": 0.023809523809523808
+    },
+    "n_positions_per_seed": {
+      "20261011": 42,
+      "20261012": 42,
+      "20261013": 42
+    },
+    "interpretation": "seed sensitivity on the same 42 dependent positions, not independent campaign-level uncertainty"
+  },
+  "frequency_top5": {
+    "mean_accuracy_across_seeds": 0.015873015873015872,
+    "sample_sd_across_seeds": 0.013746434980705375,
+    "hits_by_seed": {
+      "20261011": 1,
+      "20261012": 0,
+      "20261013": 1
+    },
+    "accuracy_by_seed": {
+      "20261011": 0.023809523809523808,
+      "20261012": 0.0,
+      "20261013": 0.023809523809523808
+    },
+    "n_positions_per_seed": {
+      "20261011": 42,
+      "20261012": 42,
+      "20261013": 42
+    },
+    "interpretation": "seed sensitivity on the same 42 dependent positions, not independent campaign-level uncertainty"
+  },
+  "lstm_top1": {
+    "mean_accuracy_across_seeds": 0.0,
+    "sample_sd_across_seeds": 0.0,
+    "hits_by_seed": {
+      "20261011": 0,
+      "20261012": 0,
+      "20261013": 0
+    },
+    "accuracy_by_seed": {
+      "20261011": 0.0,
+      "20261012": 0.0,
+      "20261013": 0.0
+    },
+    "n_positions_per_seed": {
+      "20261011": 42,
+      "20261012": 42,
+      "20261013": 42
+    },
+    "interpretation": "seed sensitivity on the same 42 dependent positions, not independent campaign-level uncertainty"
+  },
+  "lstm_top3": {
+    "mean_accuracy_across_seeds": 0.015873015873015872,
+    "sample_sd_across_seeds": 0.02749286996141075,
+    "hits_by_seed": {
+      "20261011": 0,
+      "20261012": 2,
+      "20261013": 0
+    },
+    "accuracy_by_seed": {
+      "20261011": 0.0,
+      "20261012": 0.047619047619047616,
+      "20261013": 0.0
+    },
+    "n_positions_per_seed": {
+      "20261011": 42,
+      "20261012": 42,
+      "20261013": 42
+    },
+    "interpretation": "seed sensitivity on the same 42 dependent positions, not independent campaign-level uncertainty"
+  },
+  "lstm_top5": {
+    "mean_accuracy_across_seeds": 0.05555555555555555,
+    "sample_sd_across_seeds": 0.013746434980705375,
+    "hits_by_seed": {
+      "20261011": 2,
+      "20261012": 2,
+      "20261013": 3
+    },
+    "accuracy_by_seed": {
+      "20261011": 0.047619047619047616,
+      "20261012": 0.047619047619047616,
+      "20261013": 0.07142857142857142
+    },
+    "n_positions_per_seed": {
+      "20261011": 42,
+      "20261012": 42,
+      "20261013": 42
+    },
+    "interpretation": "seed sensitivity on the same 42 dependent positions, not independent campaign-level uncertainty"
+  },
+  "markov1_top1": {
+    "mean_accuracy_across_seeds": 0.007936507936507936,
+    "sample_sd_across_seeds": 0.013746434980705375,
+    "hits_by_seed": {
+      "20261011": 0,
+      "20261012": 1,
+      "20261013": 0
+    },
+    "accuracy_by_seed": {
+      "20261011": 0.0,
+      "20261012": 0.023809523809523808,
+      "20261013": 0.0
+    },
+    "n_positions_per_seed": {
+      "20261011": 42,
+      "20261012": 42,
+      "20261013": 42
+    },
+    "interpretation": "seed sensitivity on the same 42 dependent positions, not independent campaign-level uncertainty"
+  },
+  "markov1_top3": {
+    "mean_accuracy_across_seeds": 0.05555555555555555,
+    "sample_sd_across_seeds": 0.013746434980705375,
+    "hits_by_seed": {
+      "20261011": 3,
+      "20261012": 2,
+      "20261013": 2
+    },
+    "accuracy_by_seed": {
+      "20261011": 0.07142857142857142,
+      "20261012": 0.047619047619047616,
+      "20261013": 0.047619047619047616
+    },
+    "n_positions_per_seed": {
+      "20261011": 42,
+      "20261012": 42,
+      "20261013": 42
+    },
+    "interpretation": "seed sensitivity on the same 42 dependent positions, not independent campaign-level uncertainty"
+  },
+  "markov1_top5": {
+    "mean_accuracy_across_seeds": 0.12698412698412698,
+    "sample_sd_across_seeds": 0.013746434980705375,
+    "hits_by_seed": {
+      "20261011": 5,
+      "20261012": 5,
+      "20261013": 6
+    },
+    "accuracy_by_seed": {
+      "20261011": 0.11904761904761904,
+      "20261012": 0.11904761904761904,
+      "20261013": 0.14285714285714285
+    },
+    "n_positions_per_seed": {
+      "20261011": 42,
+      "20261012": 42,
+      "20261013": 42
+    },
+    "interpretation": "seed sensitivity on the same 42 dependent positions, not independent campaign-level uncertainty"
+  },
+  "markov2_backoff_top1": {
+    "mean_accuracy_across_seeds": 0.047619047619047616,
+    "sample_sd_across_seeds": 0.0,
+    "hits_by_seed": {
+      "20261011": 2,
+      "20261012": 2,
+      "20261013": 2
+    },
+    "accuracy_by_seed": {
+      "20261011": 0.047619047619047616,
+      "20261012": 0.047619047619047616,
+      "20261013": 0.047619047619047616
+    },
+    "n_positions_per_seed": {
+      "20261011": 42,
+      "20261012": 42,
+      "20261013": 42
+    },
+    "interpretation": "seed sensitivity on the same 42 dependent positions, not independent campaign-level uncertainty"
+  },
+  "markov2_backoff_top3": {
+    "mean_accuracy_across_seeds": 0.06349206349206349,
+    "sample_sd_across_seeds": 0.013746434980705375,
+    "hits_by_seed": {
+      "20261011": 3,
+      "20261012": 2,
+      "20261013": 3
+    },
+    "accuracy_by_seed": {
+      "20261011": 0.07142857142857142,
+      "20261012": 0.047619047619047616,
+      "20261013": 0.07142857142857142
+    },
+    "n_positions_per_seed": {
+      "20261011": 42,
+      "20261012": 42,
+      "20261013": 42
+    },
+    "interpretation": "seed sensitivity on the same 42 dependent positions, not independent campaign-level uncertainty"
+  },
+  "markov2_backoff_top5": {
+    "mean_accuracy_across_seeds": 0.11904761904761904,
+    "sample_sd_across_seeds": 0.023809523809523808,
+    "hits_by_seed": {
+      "20261011": 5,
+      "20261012": 4,
+      "20261013": 6
+    },
+    "accuracy_by_seed": {
+      "20261011": 0.11904761904761904,
+      "20261012": 0.09523809523809523,
+      "20261013": 0.14285714285714285
+    },
+    "n_positions_per_seed": {
+      "20261011": 42,
+      "20261012": 42,
+      "20261013": 42
+    },
+    "interpretation": "seed sensitivity on the same 42 dependent positions, not independent campaign-level uncertainty"
+  }
+}

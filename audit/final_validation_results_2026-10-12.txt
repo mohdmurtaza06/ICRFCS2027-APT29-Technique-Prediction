@@ -1,0 +1,26 @@
+Final validation run: 12 October 2026
+
+Code
+- `python -m compileall -q scripts tests`: PASS
+- `python -m unittest discover -s tests -q`: 37 tests passed
+
+Empirical outputs
+- `artifacts_primary_reflect/reconciliation.json`: all_checks_passed=true; failures=[]
+- `artifacts_sensitivity_clamp/reconciliation.json`: all_checks_passed=true; failures=[]
+- `artifacts_sensitivity_uniform_tactic/reconciliation.json`: all_checks_passed=true; failures=[]
+- `artifacts_sensitivity_active_only/reconciliation.json`: all_checks_passed=true; failures=[]
+- `audit/sensitivity_comparison.json`: status=PASS; common hashes, seeds, runtime versions, model settings, context=98, targets=42, and candidate vocabulary=835 checked.
+
+Manuscript
+- `ICRFCS2027_TTP_Paper_Source.tex` compiled successfully with forced latexmk/pdfLaTeX pass; no unresolved citation/reference warnings remain in `audit/final_latex_compile.log`.
+- `ICRFCS2027_TTP_Paper_Source.pdf` is 5 pages, US Letter, unencrypted, readable, author metadata blank; see `audit/PDF_PREFLIGHT_2026-10-12.txt`.
+- All five pages rendered and visually inspected for clipping/blank pages; temporary render files are excluded from the release.
+- Manuscript text identity scan for the known author name/affiliation/email identifiers found no matches. This scan cannot guarantee the absence of every possible identity clue.
+
+Not verified
+- Similarity report and compliance with the stated 15% threshold.
+- Windows rerun on author-reported Python 3.14.7 / PyTorch 2.14.1.
+- Authoritative IEEE proceedings metadata for Pappu reference [10]; its unverified page range was removed from the manuscript citation.
+- Direct inspection of the original local `artifacts_reflecting_walk/` directory, which was not in the uploaded ZIP.
+
+This is a completed in-scope audit package, not a statement that submission gates outside the available environment have passed.

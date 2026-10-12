@@ -1,0 +1,63 @@
+{
+  "purpose": "Sequence reconstruction and cross-vendor data-integrity audit only; this is not a model-results reproduction.",
+  "public_source_repository": "https://github.com/mitre-attack/joystick/tree/8bee0d3128abc08c4e00c60b01c1608e162bb9ce/data/evaluations/apt29",
+  "sorting_rule": "Flatten Techniques[].Steps[]; sort by numeric major step, branch letter, numeric suborder in SubStep.",
+  "signature_fields": [
+    "substep",
+    "technique_id"
+  ],
+  "reference_file": "McAfee.1.APT29.1_Results.json",
+  "cross_vendor_pairwise_identity_to_reference": true,
+  "source_files": [
+    {
+      "file": "McAfee.1.APT29.1_Results.json",
+      "git_blob_sha1": "369ee8151f516fa56b9935e3710aae6c1ddb0561",
+      "matches_pinned_source_revision": true,
+      "sequence_instances": 140,
+      "unique_substeps": 140,
+      "unique_technique_ids": 58,
+      "matches_reference_ordered_substep_technique_pairs": true,
+      "first_differences_vs_reference": []
+    },
+    {
+      "file": "Microsoft.1.APT29.1_Results.json",
+      "git_blob_sha1": "6f69ec6148d47da4087bc0a27b702a25607fedfa",
+      "matches_pinned_source_revision": true,
+      "sequence_instances": 140,
+      "unique_substeps": 140,
+      "unique_technique_ids": 58,
+      "matches_reference_ordered_substep_technique_pairs": true,
+      "first_differences_vs_reference": []
+    },
+    {
+      "file": "FireEye.1.APT29.1_Results.json",
+      "git_blob_sha1": "c2af8b2fea8255a43800bad6ef7d53295be0df90",
+      "matches_pinned_source_revision": true,
+      "sequence_instances": 140,
+      "unique_substeps": 140,
+      "unique_technique_ids": 58,
+      "matches_reference_ordered_substep_technique_pairs": true,
+      "first_differences_vs_reference": []
+    },
+    {
+      "file": "CrowdStrike.1.APT29.1_Results.json",
+      "git_blob_sha1": "6fc22d773238a9a8df645143d76b0a1f1d55dcaf",
+      "matches_pinned_source_revision": true,
+      "sequence_instances": 140,
+      "unique_substeps": 140,
+      "unique_technique_ids": 58,
+      "matches_reference_ordered_substep_technique_pairs": true,
+      "first_differences_vs_reference": []
+    },
+    {
+      "file": "Bitdefender.1.APT29.1_Results.json",
+      "git_blob_sha1": "5cefb66b039ac70af5edcc211f48a24203df617f",
+      "matches_pinned_source_revision": true,
+      "sequence_instances": 140,
+      "unique_substeps": 140,
+      "unique_technique_ids": 58,
+      "matches_reference_ordered_substep_technique_pairs": true,
+      "first_differences_vs_reference": []
+    }
+  ]
+}

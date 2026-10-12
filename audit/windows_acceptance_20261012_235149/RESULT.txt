@@ -1,0 +1,7 @@
+﻿Windows acceptance check
+Timestamp: 2026-10-13T00:10:06.4693510+05:30
+Python: C:\Users\murta\Desktop\ICRFCS2027_FINAL_COMPLETION_PACKAGE_2026-10-12\ICRFCS2027_Final_Rebuild\.venv\Scripts\python.exe
+Full rebuild: True
+Result: PASS
+Evidence directory: C:\Users\murta\Desktop\ICRFCS2027_FINAL_COMPLETION_PACKAGE_2026-10-12\ICRFCS2027_Final_Rebuild\audit\windows_acceptance_20261012_235149
+Note: without -FullRebuild, this validates bundled artifacts on Windows but does not rerun model training. With -FullRebuild, all four policies are freshly trained using the selected Windows environment; results are a separate Windows run, and bit-identical outputs versus Linux are not assumed.

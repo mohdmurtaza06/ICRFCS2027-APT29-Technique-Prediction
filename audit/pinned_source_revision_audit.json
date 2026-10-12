@@ -1,0 +1,38 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "repository": "https://github.com/mitre-attack/joystick",
+  "pinned_commit": "8bee0d3128abc08c4e00c60b01c1608e162bb9ce",
+  "commit_message": "Refactor Joystick",
+  "commit_date_utc": "2020-04-21T16:21:09Z",
+  "method": "Retrieved each file at the immutable commit ref, flattened Techniques[].Steps[], parsed and sorted SubStep by numeric major step, branch letter, numeric suborder, then compared ordered (SubStep, TechniqueId) pairs.",
+  "summary": {
+    "sequence_instances_each_file": 140,
+    "unique_substeps_each_file": 140,
+    "unique_technique_ids_each_file": 58,
+    "all_five_ordered_sequences_match": true,
+    "interpretation": "Source reconstruction consistency only. Five vendor exports are views of the same MITRE-designed emulation, not five independent campaigns; this does not validate model metrics."
+  },
+  "files": [
+    {
+      "name": "McAfee.1.APT29.1_Results.json",
+      "git_blob_sha1": "369ee8151f516fa56b9935e3710aae6c1ddb0561"
+    },
+    {
+      "name": "Microsoft.1.APT29.1_Results.json",
+      "git_blob_sha1": "6f69ec6148d47da4087bc0a27b702a25607fedfa"
+    },
+    {
+      "name": "FireEye.1.APT29.1_Results.json",
+      "git_blob_sha1": "c2af8b2fea8255a43800bad6ef7d53295be0df90"
+    },
+    {
+      "name": "CrowdStrike.1.APT29.1_Results.json",
+      "git_blob_sha1": "6fc22d773238a9a8df645143d76b0a1f1d55dcaf"
+    },
+    {
+      "name": "Bitdefender.1.APT29.1_Results.json",
+      "git_blob_sha1": "5cefb66b039ac70af5edcc211f48a24203df617f"
+    }
+  ],
+  "hash_note": "The listed values are Git blob SHA-1 object IDs reported for the source files, not SHA-256 file hashes. The benchmark computes SHA-256 hashes for the actual local input bytes at run time."
+}
