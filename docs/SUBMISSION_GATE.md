@@ -15,7 +15,7 @@
 - [x] Synthetic sensitivity is described as a heuristic stress test; no condition is declared more realistic or selected to maximize accuracy.
 - [x] Historical 58-label scores are segregated as unverified/not reproduced, not blended with the 835-candidate results.
 - [ ] Original user-local `artifacts_reflecting_walk/` directory is absent from the uploaded source archive. The current reflect run matches preserved handover hit counts, but the original raw outputs could not be inspected directly.
-- [ ] Windows rerun in the author's reported Python 3.14.7 / PyTorch 2.14.1 environment remains outstanding; cross-platform bit identity is not established.
+- [x] Archived Windows full-rebuild evidence reviewed: `RESULT.txt` records `Full rebuild: True` and `Result: PASS`; the four-condition Windows comparison reports `status: PASS` for seeds 20261011/12/13. Captured runtime is Windows 10, Python 3.13.15, NumPy 2.5.4, PyTorch 2.14.1 (pandas and scikit-learn are recorded as not installed). The logs/artifacts are in the user's archived package and are not yet mirrored into this repository. Cross-platform bit identity is not claimed.
 
 ## Manuscript and conference checks
 - [x] Manuscript reflects the corrected independent 835-ID candidate universe and uses corrected-run results for the primary benchmark.
@@ -26,13 +26,13 @@
 - [x] PDF Author metadata is blank; source uses `Anonymous Submission`; no identifying strings for the submitting author were found in the manuscript-text scan.
 - [x] Conference submission screenshot archived in `audit/conference_submission_screenshot_2026-10-12.png`; readable requirements transcribed in `audit/conference_submission_requirements_2026-10-12.md`.
 - [x] Official site checked for dates, scope, publication statement and registration conditions. IEEE Xplore inclusion is not guaranteed by the conference's own wording.
-- [ ] Similarity report not obtained. The stated 15% ceiling is **not verified**.
+- [ ] User-supplied Duplichecker screenshot reports 97% unique, 3% exact matches, 0% partial matches, and 10+ sources. The displayed percentage is below 15%, but formal compliance remains **unverified** until ICRFCS confirms Duplichecker is an accepted service (or an accepted checker report is obtained) and the listed matches are reviewed.
 - [ ] Reference [10] (Pappu) remains partially verified. Title, author, conference and DOI match an author-uploaded full text, but an authoritative IEEE proceedings record was not retrieved; the manuscript omits the unverified page range.
 - [ ] Full source-level checking of every cited claim was not performed; metadata verification is not a guarantee that every citation supports its associated claim.
 - [ ] No manuscript submission has been sent; acceptance and publication are not implied.
 
 ## Before sending the paper
-1. Obtain a similarity report from an accepted service; inspect any matches and revise honestly without using similarity evasion.
+1. Ask ICRFCS whether Duplichecker is accepted for its similarity gate. If not explicitly accepted, obtain a report from a service the conference names or approves; inspect each match and revise genuine overlap transparently.
 2. Seek authoritative IEEE proceedings metadata for Pappu [10]; until then, retain the manuscript's citation without the unverified page range or replace the reference with a fully verified source.
 3. Run the documented suite on Windows if cross-platform validation is required, saving exact environment and reconciliation outputs.
 4. Review the paper's contribution and scope critically; the current experiment is a small pilot and may be judged too narrow or too synthetic for acceptance.
