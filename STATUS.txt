@@ -1,4 +1,4 @@
-STATUS (2026-10-12 completion pass): EMPIRICAL CODE/ARTIFACT AUDIT PASSED; SUBMISSION NOT CLEARED.
+STATUS (updated 2026-10-15 from archived evidence): EMPIRICAL CODE/ARTIFACT AUDIT PASSED; WINDOWS FULL REBUILD EVIDENCED; SUBMISSION NOT CLEARED.
 
 Completed and verified in this working package
 - 37 automated tests pass: `python -m unittest discover -s tests -q`; `python -m compileall -q scripts tests` passes.
@@ -21,8 +21,8 @@ Key empirical interpretation
 - Model rankings are sensitive to generator policy. Three seeds evaluate the same 42 dependent target positions; they are not independent campaigns. The synthetic generator is a heuristic, not a validated attack simulator, and no operational or cross-campaign prediction claim is supported.
 
 External / unresolved gates
-- No similarity report was obtained; compliance with the stated 15% similarity ceiling is NOT verified.
-- A clean Windows rerun in the author's reported Python 3.14.7 / PyTorch 2.14.1 environment was not performed; cross-platform bit identity is unverified.
+- A user-supplied Duplichecker screenshot (15 October 2026) reports 97% unique, 3% exact matches, 0% partial matches, and 10+ sources. This is below the stated numeric ceiling but does NOT establish formal compliance until ICRFCS confirms Duplichecker is accepted (or an accepted service report is obtained) and the matches are reviewed.
+- A full Windows rebuild is evidenced in the user's archived package at `audit/windows_acceptance_20261012_235149/`: `RESULT.txt` records `Full rebuild: True` and `Result: PASS`; `sensitivity_comparison_windows.json` reports `status: PASS` for all four conditions. Captured environment: Windows 10, Python 3.13.15, NumPy 2.5.4, PyTorch 2.14.1; pandas and scikit-learn are reported as not installed. This evidence is not yet bundled in this public repository snapshot. Cross-platform bit identity is not claimed.
 - Pappu reference [10] remains partially verified: an author-uploaded public copy confirms title/author/conference/DOI, but authoritative IEEE proceedings metadata was not retrieved. The manuscript omits the unverified page range.
 - The original user-local `artifacts_reflecting_walk/` directory was not included in the uploaded ZIP and was not inspected. The reflecting condition does match the preserved handover seed-level hit counts.
 - The conference website screenshot confirms format, length, anonymization and similarity requirements, but meeting format does not assure acceptance or IEEE Xplore inclusion.
