@@ -1,1 +1,295 @@
-PLACEHOLDER
+\documentclass[conference]{IEEEtran}
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{array}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Next-Technique Prediction in an APT29 Evaluation Sequence: A Pilot Benchmark}
+
+\author{
+\IEEEauthorblockN{Mohammed Murtaza Tajammul}
+\IEEEauthorblockA{Department of Computer Science and Engineering\\
+Muffakham Jah College of Engineering and Technology,\\
+Osmania University, Hyderabad, Telangana, India\\
+Email: murtazamohd006@gmail.com}
+\and
+\IEEEauthorblockN{Rehan Azeem}
+\IEEEauthorblockA{Department of Computer Science and Engineering\\
+Lords Institute of Engineering and Technology,\\
+Hyderabad, India\\
+Email: rehanazeem.code@gmail.com}
+\and
+\IEEEauthorblockN{Iyad Mohiuddin}
+\IEEEauthorblockA{Department of Computer Science and Engineering\\
+Lords Institute of Engineering and Technology,\\
+Hyderabad, India\\
+Email: Iyadmohiuddin@gmail.com}
+\and
+\IEEEauthorblockN{Syed Muneeb Zeeshan}
+\IEEEauthorblockA{Department of Computer Science and Engineering\\
+Muffakham Jah College of Engineering and Technology,\\
+Osmania University, Hyderabad, Telangana, India\\
+Email: Smzeeshan.x01@gmail.com}
+\and
+\IEEEauthorblockN{Muhammad Zahid Ali}
+\IEEEauthorblockA{Department of Computer Science and Engineering\\
+Muffakham Jah College of Engineering and Technology,\\
+Osmania University, Hyderabad, Telangana, India\\
+Email: Zahidalimuhammad250@gmail.com}
+\and
+\IEEEauthorblockN{Syeda Soha Fatima}
+\IEEEauthorblockA{Department of Computer Science and Engineering\\
+Lords Institute of Engineering and Technology,\\
+Hyderabad, India\\
+Email: Sohasyedaa07@gmail.com}
+}
+
+\maketitle
+
+\begin{abstract}
+Ordered public attack traces are scarce, so next-technique forecasting is rarely evaluated against execution order. This pilot benchmark ranks the next MITRE ATT\&CK technique in one ordered sequence reconstructed from the ATT\&CK Evaluations APT29 data (140 steps, 58 distinct technique IDs). Five vendor result files yield identical ordering and are one emulation, not five campaigns. Candidates come from an independent, version-pinned ATT\&CK Enterprise v18.1 catalogue of 835 IDs, not from the sequence. Five methods (global frequency, local co-occurrence, first- and second-order Markov, LSTM) train on 500 heuristic, tactic-constrained synthetic sequences per seed plus the observed context, and are scored by teacher-forced top-$k$ ranking on the last 42 steps after a chronological 98/42 split. Over three seeds, mean top-5 accuracy is 12.7\% for Markov-1, 11.9\% for Markov-2 with backoff, 6.3\% for co-occurrence, 5.6\% for the LSTM and 1.6\% for frequency; uniform random ranking gives 0.6\%. Three further generator policies change the picture: co-occurrence top-5 ranges from 3.2\% to 11.9\% and LSTM top-5 from 0.0\% to 5.6\%, whereas both Markov models stay within 10.3--12.7\%. Differences among the better methods are one to three hits of 42 and are not a stable ranking. These descriptive results come from 42 sequentially dependent positions of one emulation and do not establish cross-campaign or operational prediction capability.
+\end{abstract}
+
+\begin{IEEEkeywords}
+MITRE ATT\&CK, adversarial technique prediction, sequence modeling, Markov model, LSTM, synthetic data, evaluation protocol
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+MITRE ATT\&CK gives defenders a shared vocabulary of adversary tactics and techniques~\cite{roy2023sok}. Predicting which technique may follow a partially observed sequence could help analysts prioritize investigation, but it is not deterministic: tactics express adversary goals, and operations can branch, repeat, omit or reorder behaviors~\cite{mitre_tactics}.
+
+Prior ATT\&CK work has mostly addressed adjacent problems: association and co-occurrence of techniques across groups and malware~\cite{alshaer2020,erfan2026}, mapping telemetry to techniques~\cite{lupinacci2026}, extracting techniques from reports~\cite{fayyazi2023,haque2026}, and surveying applications~\cite{roy2023sok,jiang2025}. Association is not temporal predictability, and execution-ordered public ground truth is scarce. We therefore ask three descriptive questions on a single ordered sequence: RQ1 do order-aware methods exceed order-agnostic ones on a chronological split? RQ2 does model complexity help? RQ3 how much do the conclusions depend on the synthetic training generator and on the single real sequence?
+
+The contributions are deliberately limited:
+\begin{itemize}
+\item A top-$k$ next-technique ranking protocol over an explicit, independent, versioned candidate universe (ATT\&CK Enterprise v18.1, 835 IDs) with fail-closed coverage checks, so no evaluation label can be added to the candidate set.
+\item A fully specified, audited comparison of five familiar methods on a chronological 98/42 split of one APT29 sequence, with every ranked list released and every hit count recomputed independently from those lists.
+\item A sensitivity analysis over four synthetic-generation policies on the same held-out positions, showing which conclusions are fragile, together with an explicit statement of the protocol asymmetry between count-based methods and the LSTM.
+\end{itemize}
+We do not claim novelty for the models, nor that this is the first ATT\&CK sequence-forecasting study (Section~\ref{sec:related}).
+
+\section{Related Work}
+\label{sec:related}
+
+\textbf{Association and co-occurrence.} Al-Shaer et al.\ study statistical associations among techniques and use clustering to infer unobserved techniques from observed ones~\cite{alshaer2020}; Erfan et al.\ analyze co-occurrence in technique data~\cite{erfan2026}. These works use unordered technique sets, so their prediction unit is a set completion, not the next step. They motivate our co-occurrence baseline, while leaving open whether order helps.
+
+\textbf{Sequential forecasting.} Ghafir et al.\ combine alert correlation with a hidden Markov model to predict advanced persistent threat activity~\cite{ghafir2019}. Pappu proposes smoothed Markov chains for ATT\&CK prediction under data scarcity~\cite{pappu2025}. Raj et al.\ propose a hybrid LSTM--Markov framework for attack-chain forecasting; the publisher description reports 4,849 chains spanning 33 campaigns~\cite{raj2026}, a considerably broader data basis than ours. These studies differ from ours in prediction unit, data and protocol, so metrics are not comparable and we make no claim of advantage; our scope is a controlled top-$k$ comparison on one evaluation sequence.
+
+\textbf{Adjacent ATT\&CK tasks.} Telemetry mapping~\cite{lupinacci2026}, LLM-based technique extraction from reports~\cite{fayyazi2023,haque2026} and application surveys~\cite{roy2023sok,jiang2025} supply technique labels or context but do not forecast the next technique.
+
+\textbf{Synthetic data and emulation sources.} APTGen generates labelled datasets of targeted-attack sequences~\cite{takahashi2020}. Our generator is much simpler, a tactic-constrained random walk with no report grounding or execution. The real sequence comes from the public APT29 evaluation~\cite{mitre_apt29,shen2024}, a single designed emulation rather than a sample of independent campaigns.
+
+\section{Task and Evaluation Protocol}
+
+Let $\mathcal{T}$ be the candidate universe, $|\mathcal{T}| = V = 835$, read from the pinned ATT\&CK Enterprise v18.1 STIX bundle. Let the observed sequence be $S = (s_1, \ldots, s_n)$, $n = 140$, $s_i \in \mathcal{T}$. The first $c = 98$ steps are context; the last $m = 42$ are held out, $y_j = s_{c+j}$. At position $j$ a method receives only $s_1, \ldots, s_{c+j-1}$ (earlier held-out steps are revealed after they occur: teacher forcing) and returns a ranked list $R_j^{(k)}$ of $k$ distinct candidates from $\mathcal{T}$. Top-$k$ accuracy is
+\begin{equation}
+A_k = \frac{1}{m} \sum_{j=1}^{m} \mathbf{1}\bigl[y_j \in R_j^{(k)}\bigr].
+\end{equation}
+
+\textbf{Aggregation.} Each run (seed) gives hits out of 42. We report the mean over the three seeds of $A_k$ and the sample standard deviation across seeds ($n-1$). Because every seed scores the same 42 positions, the mean equals pooled hits/126; e.g.\ co-occurrence top-5 has 8 hits in 126, i.e.\ 6.349\%, reported as 6.3\%. Percentages are computed from exact fractions and rounded once, to one decimal.
+
+The run aborts if an observed label is absent from $\mathcal{T}$; held-out labels are never appended. Ties are broken by ascending technique ID and lists are de-duplicated (validated for every list). A uniform random ranker has expected $A_k = k/835$: 0.12\%, 0.36\% and 0.60\% for $k = 1, 3, 5$. This is a reference level, not evidence of a predictive edge. The 835-way task is materially harder than a closed 58-label formulation over the labels in the evaluation sequence, where uniform top-5 would be $5/58 = 8.6\%$, about fourteen times higher, and scores from the two formulations cannot be compared. We report top-$k$ ranking under teacher forcing only; a free-running rollout, in which a model's own predictions are fed back, was not performed.
+
+\section{Data and Methods}
+
+\subsection{Real Sequence and Source Provenance}
+
+The sequence is reconstructed from the public MITRE ATT\&CK Evaluations APT29 structured results, pinned to commit \texttt{8bee0d3} of the Joystick repository~\cite{mitre_joystick,mitre_apt29}. Flattening technique-step records and sorting substeps by (major step, branch letter, numeric suborder) gives 140 instances with 140 unique substeps and 58 distinct technique IDs. The McAfee, Microsoft, FireEye, CrowdStrike and Bitdefender files yield identical ordered (substep, technique) pairs, and each file's hash matches the pinned value. This supports the reproducibility of the ordering but does not create five samples: the files describe one MITRE-designed emulation flow, not a canonical chronology of APT29 activity. By the evaluation data's own tactic tags the sequence is dominated by Discovery (34 steps), Defense Evasion (32), Execution (19) and Command and Control (15); no step is Impact-tagged.
+
+\subsection{Candidate Universe}
+
+$\mathcal{T}$ holds every technique and sub-technique ID in the v18.1 bundle (SHA-256 recorded in the manifest): 835 IDs, of which 691 are active, 12 deprecated and 132 revoked. Deprecated and revoked IDs are kept because the 2019 evaluation uses legacy identifiers. All 58 observed labels are present, but 23 are revoked or deprecated in v18.1, and 13 of the 42 held-out targets are revoked IDs, while such IDs are only 17.2\% of $\mathcal{T}$. All observed labels are parent-level IDs, whereas $\mathcal{T}$ also holds sub-techniques. Version 18.1 was chosen to retain the pre-v19 tactic taxonomy; later releases were not evaluated.
+
+\subsection{Synthetic Corpus and Generator Policies}
+
+For each seed, 500 sequences with lengths drawn uniformly from 20 to 140 are generated. A walk over the 14 Enterprise tactics in kill-chain order (Reconnaissance, \ldots, Impact) starts at the first tactic and at each step advances one tactic ($p = 0.55$), stays (0.25), moves back one or two (0.13) or advances two or three (0.07). A technique is then sampled uniformly from the visited tactic's pool, built from the catalogue's tactic mappings only. 204 of the 835 IDs belong to several pools, and pool sizes range from 21 (Exfiltration) to 262 (Defense Evasion), so sampling within pools is far from uniform over techniques. The tactic order is a modeling heuristic, not an ATT\&CK-mandated sequence~\cite{mitre_tactics}. Four policies are compared:
+\begin{itemize}
+\item \textbf{Primary (reflect):} out-of-range tactic positions are reflected back into the list.
+\item \textbf{Clamp:} positions saturate at the first and last tactic. Because forward moves dominate, 50--51\% of generated instances are Impact techniques and 66--70\% of sequences end in one, although no observed step or held-out target is Impact-tagged.
+\item \textbf{Uniform tactic:} the tactic is drawn uniformly and independently at every position, with no ordering.
+\item \textbf{Active-only:} the reflecting walk, but the synthetic pool excludes deprecated and revoked IDs. The ranking vocabulary stays the full 835 IDs.
+\end{itemize}
+In every policy the observed context is unchanged. An earlier script variant clamped while the intended design reflected, so we report both and claim neither generator is realistic. Corpora contain 38{,}968--40{,}769 instances per seed in the primary condition (mean length 77.9--81.5).
+
+\subsection{Models and Protocol Asymmetry}
+
+All methods rank all 835 candidates and report the top five (top-1 and top-3 are prefixes of that list). Count-based methods start from synthetic counts and incrementally absorb the growing observed prefix at every test position, including held-out steps revealed by teacher forcing (Table~\ref{tab:methods}). The LSTM (dropout 0.2, Adam, learning rate 0.003, batch 256, 35 epochs, cross-entropy) is trained once per seed on windows from the synthetic sequences plus the first 98 observed steps only (92 observed windows against roughly 36{,}000--38{,}000 synthetic ones); at test time it conditions on the last six steps of the prefix but its weights are not updated. This is a protocol asymmetry: count-based methods adapt online to revealed held-out steps whereas the LSTM does not, which affects any comparison between them. Hyperparameters were fixed beforehand and not tuned.
+
+\begin{table}[!t]
+\caption{Methods and the observed information each may use. ``Prefix'' is the context plus earlier held-out steps.}
+\label{tab:methods}
+\centering
+\begin{tabular}{|l|p{4.2cm}|p{3.5cm}|}
+\hline
+\textbf{Method} & \textbf{Ranking signal} & \textbf{Use of observed prefix} \\
+\hline
+Global frequency & Technique counts & Counts updated at every position \\
+Local co-occurrence & $\pm$5-position co-counts with last six techniques & Counts updated at every position \\
+Markov-1 & Transition counts from last technique & Counts updated at every position \\
+Markov-2 + backoff & Last-two context; first-order if unseen & Counts updated at every position \\
+LSTM & Last six techniques (32-d embed., 64 units) & Trained once on first 98 steps; frozen \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Reproducibility Controls}
+
+Each run records script and input SHA-256 hashes, package versions, seeds and settings in a manifest, writes the generated corpora and exports all 42 ranked lists per seed. An independent reconciliation script re-derives the split, catalogue coverage (directly from the STIX bundle), ranking validity (five unique in-catalogue candidates per list) and every hit count from the ranked-list CSVs, and agrees with the recorded metrics in all four conditions. The code is a new clean-room implementation, not a recreation of an earlier experiment whose artifacts are unavailable; such earlier scores are not reported or used.
+
+\section{Results}
+
+Table~\ref{tab:primary} gives hit counts and aggregated accuracy for the primary condition. Seeds change the synthetic corpus and LSTM initialization; the 42 evaluated positions are identical, so the three runs are not independent observations of campaign behavior.
+
+Three descriptive observations follow. First, only the Markov models have top-5 hits in every seed that clearly exceed the uniform reference (about 0.25 expected hits of 42): 4--6 of 42, and Markov-2 is the only method with a non-zero top-1 count in every seed (2 of 42). Co-occurrence and the LSTM register 2--4 and 2--3 top-5 hits, and global frequency 0--1. Second, differences among the three better methods are one to three hits and comparable to the seed-to-seed spread, so no stable ranking of Markov-1, Markov-2 and (at top-5) co-occurrence is supported. Third, absolute accuracy is low: the union of all five methods' top-5 lists contains the true technique at only 9, 9 and 11 of 42 positions in the three seeds.
+
+Of the 42 targets, 11 are absent from the 98-step context (8 distinct labels; 8 first occurrences in the whole sequence and 3 repeats of an earlier held-out label), and 31 appeared in the context. Only 12 of the 42 positions are hit by any method in any seed, and the seed-stable Markov hits are concentrated on a few positions. In particular, the only hits on context-unseen targets are by the two Markov models, all at positions 34 and 36 (technique T1055, which had already occurred earlier in the held-out span): 6 of Markov-1's 16 and 6 of Markov-2's 15 top-5 hits across seeds. Counts updated online from revealed held-out steps can rank such a repeat, which is consistent with a contribution from the protocol asymmetry described above; the LSTM, whose weights are frozen, has no hits on context-unseen targets, and we did not run the ablation needed to isolate this. First occurrences in the whole sequence are never hit. Strata are too small for inferential breakdowns. We report no confidence intervals or significance tests: an independent-binomial interval would understate dependence between sequential positions, and a block bootstrap needs more sequences. The SDs describe seed sensitivity only.
+
+\begin{table}[!t]
+\caption{Primary (reflect) condition. Left: top-$k$ hits out of 42 for seeds 20261011 / 20261012 / 20261013. Right: mean accuracy $\pm$ sample SD across seeds (\%). Uniform random: 0.12, 0.36, 0.60\%.}
+\label{tab:primary}
+\centering
+\scriptsize
+\begin{tabular}{|l|ccc|ccc|}
+\hline
+\textbf{Method} & \multicolumn{3}{c|}{\textbf{Hits / 42 (seed 1 / 2 / 3)}} & \multicolumn{3}{c|}{\textbf{Mean accuracy $\pm$ SD (\%)}} \\
+ & Top-1 & Top-3 & Top-5 & Top-1 & Top-3 & Top-5 \\
+\hline
+Global frequency & 0/0/0 & 0/0/1 & 1/0/1 & $0.0 \pm 0.0$ & $0.8 \pm 1.4$ & $1.6 \pm 1.4$ \\
+Local co-occurrence & 1/0/0 & 2/0/1 & 4/2/2 & $0.8 \pm 1.4$ & $2.4 \pm 2.4$ & $6.3 \pm 2.7$ \\
+Markov-1 & 0/1/0 & 3/2/2 & 5/5/6 & $0.8 \pm 1.4$ & $5.6 \pm 1.4$ & $12.7 \pm 1.4$ \\
+Markov-2 + backoff & 2/2/2 & 3/2/3 & 5/4/6 & $4.8 \pm 0.0$ & $6.3 \pm 1.4$ & $11.9 \pm 2.4$ \\
+LSTM & 0/0/0 & 0/2/0 & 2/2/3 & $0.0 \pm 0.0$ & $1.6 \pm 2.7$ & $5.6 \pm 1.4$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Sensitivity to the Synthetic Generator}
+
+Table~\ref{tab:sensitivity} compares the four policies. Switching from reflecting to clamped boundaries raises co-occurrence top-5 from 6.3\% to 11.9\% while the LSTM falls from 5.6\% to 0.0\% with no hits at any $k$; the frequency baseline's top five are Exfiltration-only techniques under the reflecting walk and Impact-only techniques under clamping, mirroring where each generator accumulates mass. Uniform tactic sampling gives co-occurrence 10.3\% and the LSTM 0.8\%. Restricting synthetic techniques to active IDs lowers co-occurrence to 3.2\% and gives the LSTM 4.0\% (0--3 hits across seeds, the widest LSTM spread), while Markov-2 reaches 11.9\% top-3 and top-5. In contrast, both Markov models stay within 10.3--12.7\% top-5 in all four policies. We did not tune any generator against held-out scores; the point is that unvalidated generator choices reorder the methods, so no method is declared a winner.
+
+\begin{table}[!t]
+\caption{Mean top-$k$ accuracy (\%) over three seeds for the four synthetic-generation policies, on the same 42 held-out positions (not independent campaigns).}
+\label{tab:sensitivity}
+\centering
+\scriptsize
+\begin{tabular}{|l|ccc|ccc|ccc|ccc|}
+\hline
+\textbf{Method} & \multicolumn{3}{c|}{\textbf{Primary (reflect)}} & \multicolumn{3}{c|}{\textbf{Clamp}} & \multicolumn{3}{c|}{\textbf{Uniform tactic}} & \multicolumn{3}{c|}{\textbf{Active-only pool}} \\
+ & @1 & @3 & @5 & @1 & @3 & @5 & @1 & @3 & @5 & @1 & @3 & @5 \\
+\hline
+Global frequency & 0.0 & 0.8 & 1.6 & 0.0 & 0.0 & 0.0 & 0.0 & 0.8 & 0.8 & 0.8 & 0.8 & 0.8 \\
+Local co-occurrence & 0.8 & 2.4 & 6.3 & 3.2 & 6.3 & 11.9 & 5.6 & 7.9 & 10.3 & 0.0 & 2.4 & 3.2 \\
+Markov-1 & 0.8 & 5.6 & 12.7 & 1.6 & 7.9 & 11.9 & 0.8 & 4.0 & 11.1 & 2.4 & 10.3 & 10.3 \\
+Markov-2 + backoff & 4.8 & 6.3 & 11.9 & 5.6 & 8.7 & 11.1 & 5.6 & 6.3 & 11.9 & 7.1 & 11.9 & 11.9 \\
+LSTM & 0.0 & 1.6 & 5.6 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.8 & 1.6 & 3.2 & 4.0 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!t]
+\caption{Top-5 hits out of 42 per seed (20261011 / 20261012 / 20261013) under each generator policy, same held-out positions.}
+\label{tab:hits}
+\centering
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Method} & \textbf{Reflect} & \textbf{Clamp} & \textbf{Uniform} & \textbf{Active-only} \\
+\hline
+Global frequency & 1/0/1 & 0/0/0 & 0/1/0 & 0/1/0 \\
+Local co-occurrence & 4/2/2 & 5/5/5 & 4/6/3 & 2/1/1 \\
+Markov-1 & 5/5/6 & 6/5/4 & 4/5/5 & 4/5/4 \\
+Markov-2 + backoff & 5/4/6 & 6/4/4 & 4/6/5 & 5/5/5 \\
+LSTM & 2/2/3 & 0/0/0 & 0/1/0 & 2/3/0 \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Discussion}
+
+\textbf{RQ1.} The Markov models, which condition on the immediately preceding technique(s), are the strongest in the primary condition and the most stable across policies; this is consistent with, but does not demonstrate, a signal beyond global prevalence. Because they also update on the revealed held-out steps, part of any advantage may reflect that online adaptation (see the asymmetry above), which we did not isolate.
+
+\textbf{RQ2.} Added complexity did not help. The LSTM is trained mostly on synthetic windows (92 observed against roughly 37{,}000 synthetic), so it may mainly reproduce the synthetic transition structure; we did not test this, and its low scores may also reflect untuned training. Its swing from 5.6\% to 0.0\% top-5 under the boundary rule alone is consistent with strong dependence on the synthetic distribution.
+
+\textbf{RQ3.} Very little can be concluded. Synthetic volume is not independent real-world evidence; sampling within tactic pools can impose a progression without real transition frequencies, branching or campaign specifics; and rankings among co-occurrence, frequency and the LSTM change with generator choices that have no empirical justification.
+
+The 835-way universe contains many revoked and deprecated IDs, and since 13 of 42 targets are revoked legacy IDs the evaluation partly measures ranking legacy identifiers that a current detector would map to successor techniques. A legacy-to-current mapping or other candidate policy would change the task and was not evaluated.
+
+\section{Limitations and Validation Plan}
+
+\textbf{Limitations.} (1) One reconstructed emulation sequence; five vendor files are one flow. (2) The 42 positions are sequentially dependent, 11 targets are unseen in the context, and seeds do not create independent campaigns. (3) The generator is a heuristic, not validated as an attack simulator. (4) Count-based methods adapt online while the LSTM does not. (5) Neither baselines nor LSTM were tuned, so weak LSTM results are no bound on neural methods. (6) The co-occurrence baseline is a local association ranking, not hierarchical clustering. (7) The catalogue policy (v18.1, revoked and deprecated IDs retained, parent-level targets) shapes the task. (8) No dependence-respecting uncertainty estimate and no free-running rollout were produced. (9) Cross-platform bit identity is not established.
+
+\textbf{Completed checks versus future work.} Completed: independent recomputation of all hit counts from ranked lists, ranking-validity and leakage tests, and recorded fresh reruns (Section~\ref{sec:repro}). Not completed, and required for any broader claim: multiple independently sourced ordered sequences; leave-one-campaign-out evaluation; generator validation or systematic ablation; stronger and tuned baselines, including online-updating variants of the LSTM; and a free-running comparison.
+
+\section{Reproducibility and Data Availability}
+\label{sec:repro}
+
+The release comprises source hashes, pinned revisions, scripts, generated corpora, per-position rankings, per-seed metrics and independent reconciliation reports. The four-condition suite was run with Python 3.13.5, NumPy 2.3.5 and PyTorch 2.10.0 (CPU, one intra-op thread). Two further full rebuilds of all four conditions, one on Windows (Python 3.13.15, NumPy 2.5.4, PyTorch 2.14.1) and one in a Linux container (Python 3.13.16, NumPy 2.5.3, PyTorch 2.14.1, CPU), reproduced every hit count; across the 180 per-seed metric cells per rebuild no hit count changed, and the only differences were in a few LSTM ranked lists (a reordering of the same five candidates, or one substituted candidate; four lists on Windows, two on Linux). The automated test suite (37 tests) passes.
+
+\textbf{Code Availability:} The source code and reproducibility materials for this study are available at: \url{https://github.com/mohdmurtaza06/ICRFCS2027-APT29-Technique-Prediction}. The repository contains the scripts and supporting materials required to reproduce the reported experiments, subject to the availability of the documented dependencies and data. No public repository is claimed beyond the URL provided above for this review copy.
+
+\section{Conclusion}
+
+On one APT29 emulation sequence and an independent 835-ID ATT\&CK v18.1 candidate universe, first- and second-order Markov models placed the next technique in their top five for 4--6 of 42 held-out positions in each seed, and stayed within 10.3--12.7\% top-5 under four generator policies, while frequency, co-occurrence and an LSTM trained mostly on synthetic data were weaker and changed with generator choices. Given one sequence, 42 dependent positions, an unvalidated generator and an asymmetric update protocol, these are descriptive pilot findings, not evidence of cross-campaign or operational predictive capability. Independent sequences, a validated generator, held-out-campaign evaluation and free-running comparison are the necessary next steps.
+
+\bibliographystyle{IEEEtran}
+\begin{thebibliography}{15}
+
+\bibitem{roy2023sok}
+S.~Roy, E.~Panaousis, C.~Noakes, A.~Laszka, S.~Panda, and G.~Loukas, ``SoK: The MITRE ATT\&CK framework in research and practice,'' arXiv:2304.07411, 2023. [Online]. Available: \url{https://arxiv.org/abs/2304.07411}.
+
+\bibitem{mitre_tactics}
+MITRE, ``Enterprise tactics,'' MITRE ATT\&CK. [Online]. Available: \url{https://attack.mitre.org/tactics/}. Accessed: Oct.~11, 2026.
+
+\bibitem{alshaer2020}
+R.~Al-Shaer, J.~M.~Spring, and E.~Christou, ``Learning the associations of MITRE ATT\&CK adversarial techniques,'' in \emph{Proc. IEEE Conf. Communications and Network Security (CNS)}, 2020, pp.~1--9.
+
+\bibitem{erfan2026}
+M.~Erfan, A.~Ryan, L.~Williams, and M.~R.~Rahman, ``Investigating co-occurrences of MITRE ATT\&CK techniques,'' \emph{Computers \& Security}, vol.~170, 2026, art.~no.~105042.
+
+\bibitem{lupinacci2026}
+M.~Lupinacci, L.~Arena, F.~Blefari, and A.~Furfaro, ``A graph-based approach for mapping kernel-level telemetry to MITRE ATT\&CK,'' arXiv:2609.12841, 2026. [Online]. Available: \url{https://arxiv.org/abs/2609.12841}.
+
+\bibitem{fayyazi2023}
+R.~Fayyazi, R.~Taghdimi, and S.~J.~Yang, ``Advancing TTP analysis: Harnessing the power of large language models with retrieval augmented generation,'' arXiv:2401.00280, 2023. [Online]. Available: \url{https://arxiv.org/abs/2401.00280}.
+
+\bibitem{haque2026}
+M.~N.~Haque, S.~Hamer, B.~Wroblewski, M.~R.~Rahman, and L.~Williams, ``Beyond single reports: Evaluating automated ATT\&CK technique extraction in multi-report campaign settings,'' arXiv:2604.07470, 2026. [Online]. Available: \url{https://arxiv.org/abs/2604.07470}.
+
+\bibitem{jiang2025}
+Y.~Jiang, Q.~Meng, F.~Shang, N.~Oo, L.~T.~H.~Minh, H.~W.~Lim, and B.~Sikdar, ``MITRE ATT\&CK applications in cybersecurity and the way forward,'' arXiv:2502.10825, 2025. [Online]. Available: \url{https://arxiv.org/abs/2502.10825}.
+
+\bibitem{ghafir2019}
+I.~Ghafir, K.~G.~Kyriakopoulos, S.~Lambotharan, F.~J.~Aparicio-Navarro, B.~Assadhan, H.~Binsalleeh, and D.~M.~Diab, ``Hidden Markov models and alert correlations for the prediction of advanced persistent threats,'' \emph{IEEE Access}, vol.~7, pp.~99508--99520, 2019.
+
+\bibitem{pappu2025}
+K.~Pappu, ``Smoothed Markov chains for MITRE ATT\&CK prediction: Addressing data scarcity in cyber kill chains,'' in \emph{Proc. 5th Int. Conf. Electronic Information Engineering and Computer Communication (EIECC)}, Dec.~2025, pp.~761--764.
+
+\bibitem{raj2026}
+M.~Raj, N.~D.~Bastian, L.~Fiondella, and G.~Kul, ``MITRE ATT\&CK-based attack chain prediction using hybrid LSTM-Markov models for cyber risk assessment,'' in \emph{Proc. 23rd Int. Conf. Security and Cryptography (SECRYPT)}, 2026, pp.~1039--1050.
+
+\bibitem{takahashi2020}
+Y.~Takahashi, S.~Shima, R.~Tanabe, and K.~Yoshioka, ``APTGen: An approach towards generating practical dataset labelled with targeted attack sequences,'' in \emph{Proc. 13th USENIX Workshop on Cyber Security Experimentation and Test (CSET)}, 2020. [Online]. Available: \url{https://www.usenix.org/conference/cset20/presentation/takahashi}.
+
+\bibitem{mitre_apt29}
+MITRE Engenuity, ``ATT\&CK evaluations: APT29,'' 2019. [Online]. Available: \url{https://attackevals.mitre-engenuity.org/enterprise/APT29/}.
+
+\bibitem{shen2024}
+X.~Shen, Z.~Li, G.~Burleigh, L.~Wang, and Y.~Chen, ``Decoding the MITRE Engenuity ATT\&CK Enterprise evaluation: An analysis of EDR performance in real-world environments,'' in \emph{Proc. 19th ACM Asia Conf. Computer and Communications Security (ASIA CCS)}, 2024, pp.~96--111.
+
+\bibitem{mitre_joystick}
+MITRE, ``ATT\&CK evaluations structured result data, APT29,'' mitre-attack/joystick public repository, commit 8bee0d3. [Online]. Available: \url{https://github.com/mitre-attack/joystick/tree/8bee0d3128abc08c4e00c60b01c1608e162bb9ce/data/evaluations/apt29}. Accessed: Oct.~11, 2026.
+
+\end{thebibliography}
+
+\end{document}
